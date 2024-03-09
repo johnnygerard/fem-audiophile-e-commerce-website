@@ -1,9 +1,11 @@
+import { ProductCategory } from "./product-category.enum";
+
 export type Product = {
   id: number;
   slug: string;
   name: string;
   image: Image;
-  category: 'headphones' | 'speakers' | 'earphones';
+  category: ProductCategory;
   categoryImage: Image;
   new: boolean;
   price: number;
