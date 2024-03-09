@@ -1,6 +1,5 @@
 {
   "name": "fem-audiophile-e-commerce-website",
-  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
