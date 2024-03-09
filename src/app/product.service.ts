@@ -12,9 +12,14 @@ export class ProductService {
 
   constructor(private _http: HttpClient) { }
 
-  getProduct(slug: string): Observable<Product | undefined> {
+  getProduct(id: number): Observable<Product> {
     return this.products.pipe(
-      map(products => products.find(product => product.slug === slug))
+      map(products => {
+        const product = products.find(product => product.id === id);
+
+        if (product) return product;
+        throw Error(`Product #${id} not found`);
+      })
     );
   }
 
