@@ -1,0 +1,31 @@
+# Functional Requirements Document
+- App name: "Audiophile e-commerce website"
+- Description: A multi-page e-commerce website with shopping cart and checkout form
+
+## User Capabilities
+- View shopping cart from header
+- In product detail pages:
+  - Choose product quantity
+  - Add product to cart
+- In shopping cart modal:
+  - Remove all products
+  - Update any product quantity
+  - View products sorted by price (descending)
+  - View total number of distinct products
+  - View single product price (without VAT)
+  - View total price (with VAT but without shipping cost)
+  - Checkout
+- In checkout form:
+  - View cost breakdown:
+    - Products sorted by price (descending)
+    - Total price (with VAT but without shipping cost)
+    - Shipping cost ($50)
+    - VAT (20% of total price)
+    - Final price (total price + shipping cost)
+  - Fill out checkout form
+  - Confirm order
+- In order confirmation modal:
+  - View most expensive product
+  - View number of remaining distinct products
+  - View final price
+  - Go back to home page
