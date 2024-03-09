@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @mixin mobile {
   @media (max-width: 767px) {
     @content;
@@ -15,3 +17,70 @@
     @content;
   }
 }
+
+$palette: (
+  // Shades of gray
+  "black": #000000,
+  "charcoal": #101010,
+  "light-gray": #f1f1f1,
+  "off-white": #fafafa,
+  "white": #ffffff,
+
+  "accent": #d87d4a,
+  "accent-light": #fbaf85
+);
+
+// START TYPOGRAPHY STYLES ****************************************************
+@mixin heading($font-size, $letter-spacing, $line-height: normal) {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+}
+
+@mixin h1 {
+  @include heading(56px, 2px, 58px);
+}
+
+@mixin h2 {
+  @include heading(40px, 1.429px, 44px);
+}
+
+@mixin h3 {
+  @include heading(32px, 1.143px, 36px);
+}
+
+@mixin h4 {
+  @include heading(28px, 2px);
+}
+
+@mixin h5 {
+  @include heading(24px, 1.714px);
+}
+
+@mixin h6 {
+  @include heading(18px, 1.286px);
+}
+
+@mixin overline {
+  color: map.get($palette, "accent");
+  font-size: 14px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+@mixin subtitle {
+  color: map.get($palette, "accent");
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0.929px;
+  text-transform: uppercase;
+}
+
+@mixin body {
+  font-size: 15px;
+  line-height: 25px;
+}
+// END TYPOGRAPHY STYLES ******************************************************
