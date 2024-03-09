@@ -1,8 +1,7 @@
 import { ProductCategory } from "./product-category.enum";
 
 export type Product = {
-  id: number;
-  slug: string;
+  id: string;
   name: string;
   image: Image;
   category: ProductCategory;
@@ -32,7 +31,7 @@ type Includes = {
 };
 
 type OtherProduct = {
-  slug: string;
+  id: string;
   name: string;
   image: Image;
 };
