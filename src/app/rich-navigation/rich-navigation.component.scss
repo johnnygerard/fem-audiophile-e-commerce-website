@@ -12,6 +12,7 @@
 
 .link-container {
   display: flex;
+  padding-top: 52px;
 
   @include mobile {
     flex-direction: column;
@@ -24,6 +25,7 @@
 
   @include desktop {
     gap: 30px;
+    padding-top: 80px;
   }
 
   &-items {
@@ -53,14 +55,15 @@
 
   &-image {
     position: absolute;
-    width: 176px;
-    bottom: 60px;
+    width: 152px;
+    bottom: 72px;
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
 
     @include desktop {
-      width: 250px;
+      width: 230px;
+      bottom: 64px;
     }
   }
 
