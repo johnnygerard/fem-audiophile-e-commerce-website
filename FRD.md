@@ -12,13 +12,13 @@
   - Update any product quantity
   - View products sorted by price (descending)
   - View total number of distinct products
-  - View single product price (without VAT)
-  - View total price (with VAT but without shipping cost)
+  - View single product price (VAT included)
+  - View total price (VAT included without shipping cost)
   - Checkout
 - In checkout form:
   - View cost breakdown:
     - Products sorted by price (descending)
-    - Total price (with VAT but without shipping cost)
+    - Total price (VAT included without shipping cost)
     - Shipping cost ($50)
     - VAT (20% of total price)
     - Final price (total price + shipping cost)
