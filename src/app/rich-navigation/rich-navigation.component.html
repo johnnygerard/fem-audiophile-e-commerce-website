@@ -1,6 +1,6 @@
 <nav aria-label="Product Categories">
   <ul class="link-container">
-    <li class="link-container-items" *ngFor="let category of productCategories">
+    <li class="link-container-item" *ngFor="let category of productCategories">
       <img class="link-image" alt
           src="/assets/images/shared/desktop/category-thumbnail-{{ category }}.png">
       <a class="link" routerLink="/{{ category }}" [attr.aria-label]="'Shop ' + category">
