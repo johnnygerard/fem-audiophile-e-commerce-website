@@ -1,5 +1,6 @@
 <div class="header">
-  <button type="button" (click)="togglePane()">
+  <button type="button" (click)="togglePane()"
+      [title]="(isPaneOpen ? 'Close' : 'Open') + ' navigation pane'">
     <svg-menu />
   </button>
   <a class="logo-container" [routerLink]="isDesktop ? null : '/'"
@@ -8,6 +9,11 @@
   </a>
   <svg-shopping-cart />
 </div>
-<div class="pane-container" *ngIf="isPaneOpen">
-  <app-rich-navigation />
-</div>
+<ng-container *ngIf="isPaneOpen && !isDesktop">
+  <div class="pane-container" @pane>
+    <app-rich-navigation />
+  </div>
+  <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+  <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+  <div class="pane-backdrop" (click)="isPaneOpen = false"></div>
+</ng-container>

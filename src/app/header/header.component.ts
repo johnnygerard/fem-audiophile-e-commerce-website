@@ -5,6 +5,9 @@ import { ShoppingCartComponent } from '../svg/shopping-cart/shopping-cart.compon
 import { RichNavigationComponent } from '../rich-navigation/rich-navigation.component';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { trigger, style, transition, animate } from '@angular/animations';
+
+const TIMING = '300ms ease';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +22,18 @@ import { RouterLink } from '@angular/router';
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('pane', [
+      transition(':enter', [
+        style({ transform: 'translateY(-100%)' }),
+        animate(TIMING, style({ transform: 'translateY(0)' })),
+      ]),
+      transition(':leave', [
+        animate(TIMING, style({ transform: 'translateY(-100%)' })),
+      ]),
+    ]),
+  ],
 })
 export class HeaderComponent {
   isDesktop = this.#isDesktop;
