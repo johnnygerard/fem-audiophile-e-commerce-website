@@ -1,6 +1,35 @@
 @use "reset";
 @use "index" as *;
+@use "sass:map";
 
 body {
   font-family: "Manrope", sans-serif;
+}
+
+.g-button-accent {
+  @include button;
+  background-color: map.get($palette, "accent");
+  color: map.get($palette, "white");
+
+  &:is(:hover, :focus-visible) {
+    background-color: map.get($palette, "accent-light");
+  }
+}
+
+.g-button-normal {
+  @include button;
+  border: 1px solid map.get($palette, "black");
+  background-color: map.get($palette, "white");
+  color: map.get($palette, "black");
+
+  &:is(:hover, :focus-visible) {
+    border: none;
+    background-color: map.get($palette, "black");
+    color: map.get($palette, "white");
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get($palette, "white");
+    outline-offset: -4px;
+  }
 }
