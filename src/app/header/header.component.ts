@@ -6,6 +6,7 @@ import { RichNavigationComponent } from '../rich-navigation/rich-navigation.comp
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { NavigationComponent } from '../svg/navigation/navigation.component';
 
 const TIMING = '300ms ease';
 
@@ -19,6 +20,7 @@ const TIMING = '300ms ease';
     LogoComponent,
     ShoppingCartComponent,
     RichNavigationComponent,
+    NavigationComponent,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
