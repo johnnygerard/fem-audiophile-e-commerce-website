@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ProductCategory } from '../../types/product-category.enum';
+import { ProductCategory } from '../types/product-category.enum';
 
 @Component({
   selector: 'app-navigation',
