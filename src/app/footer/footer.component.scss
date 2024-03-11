@@ -1,0 +1,113 @@
+@use "index" as *;
+@use "sass:map";
+
+$tablet-horizontal-padding: 40px;
+$desktop-horizontal-padding: 165px;
+
+:host {
+  display: block;
+}
+
+.footer {
+  position: relative;
+  background-color: map.get($palette, "charcoal");
+
+  @include mobile {
+    padding: 52px 24px 38px;
+  }
+
+  @include tablet {
+    padding: 60px $tablet-horizontal-padding 46px;
+  }
+
+  @include desktop {
+    padding: 75px $desktop-horizontal-padding 48px;
+  }
+}
+
+.mark {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: map.get($palette, "accent");
+  top: 0;
+
+  @include mobile {
+    // Center horizontally
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include tablet {
+    left: $tablet-horizontal-padding;
+  }
+
+  @include desktop {
+    left: $desktop-horizontal-padding;
+  }
+}
+
+.logo-nav-container {
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @include desktop {
+    justify-content: space-between;
+  }
+}
+
+.body,
+.copyright {
+  color: map.get($palette, "white");
+  @include body;
+  opacity: 0.5;
+}
+
+.body {
+  @include mobile {
+    margin: 48px 0;
+    text-align: center;
+  }
+
+  @include tablet {
+    margin: 32px 0 80px;
+    max-width: 720px;
+  }
+
+  @include desktop {
+    margin: 36px 0 56px;
+    max-width: 540px;
+  }
+}
+
+.copyright {
+  font-weight: 700;
+}
+
+.copyright-social-media-container {
+  display: flex;
+  justify-content: space-between;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+@include desktop {
+  .social-media {
+    position: relative;
+    bottom: 88px;
+  }
+}
