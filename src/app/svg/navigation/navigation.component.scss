@@ -1,0 +1,25 @@
+@use "index" as *;
+@use "sass:map";
+
+:host {
+  display: block;
+}
+
+.link-container {
+  display: flex;
+  gap: 34px;
+}
+
+.link {
+  color: map.get($palette, "white");
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &:is(:hover, :focus-visible) {
+    color: map.get($palette, "accent");
+  }
+}
