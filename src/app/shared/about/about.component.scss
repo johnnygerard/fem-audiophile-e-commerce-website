@@ -36,7 +36,7 @@
 }
 
 .word-highlight {
-  color: map-get($palette, "accent");
+  color: $color-accent;
 }
 
 .text-body {

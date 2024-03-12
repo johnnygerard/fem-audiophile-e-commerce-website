@@ -1,7 +1,7 @@
 @use "index" as *;
 
 :host {
-  background-color: map-get($palette, "black");
+  background-color: $color-black;
   background-size: cover;
   background-position: bottom left;
   background-repeat: no-repeat;
