@@ -50,6 +50,17 @@ $palette: (
   text-decoration: none;
 }
 
+@mixin ring-sizes($diameter-list) {
+  $i: 1;
+  @each $diameter in $diameter-list {
+    &:nth-child(#{$i}) {
+      width: $diameter;
+      height: $diameter;
+    }
+    $i: $i + 1;
+  }
+}
+
 // START TYPOGRAPHY STYLES ****************************************************
 @mixin heading($font-size, $letter-spacing, $line-height: normal) {
   font-weight: 700;

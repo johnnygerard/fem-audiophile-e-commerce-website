@@ -1,7 +1,10 @@
 @use "index" as *;
 @use "sass:map";
 
+$picture-bottom-offset: 14px;
+
 :host {
+  overflow: clip; // Prevents the rings from overflowing the container
   position: relative;
   display: flex;
   flex-direction: column;
@@ -26,6 +29,34 @@
   }
 }
 
+.ring-container {
+  position: relative;
+
+  @include desktop {
+    position: absolute;
+    bottom: -$picture-bottom-offset;
+    left: 118px;
+  }
+}
+
+.ring {
+  // Center rings
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  border: 1px solid map.get($palette, "white");
+  opacity: 0.2;
+
+  @include ring-sizes((472px 542px 944px));
+
+  @include mobile {
+    @include ring-sizes((280px 320px 558px));
+  }
+}
+
 .picture {
   @include mobile {
     width: 172px;
@@ -36,13 +67,8 @@
   }
 
   @include desktop {
-    $offset: 14px;
-
     width: 384px;
-    position: absolute;
-    bottom: -$offset;
-    left: 118px;
-    clip-path: inset(0 0 $offset 0);
+    clip-path: inset(0 0 $picture-bottom-offset 0);
   }
 }
 
@@ -82,11 +108,19 @@
   color: map.get($palette, "white");
 
   &:is(:hover, :focus-visible) {
-    background-color: #4C4C4C;
+    background-color: #4c4c4c;
   }
 
   &:focus-visible {
     outline: 2px solid map.get($palette, "white");
     outline-offset: -4px;
   }
+}
+
+// Paint the rings between the background and the content
+.picture,
+.heading,
+.text-body,
+.link {
+  z-index: 1;
 }

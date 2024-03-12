@@ -1,8 +1,11 @@
-<picture>
-  <source [media]="sourceMedia.DESKTOP" [srcset]="picture.desktop">
-  <source [media]="sourceMedia.TABLET" [srcset]="picture.tablet">
-  <img class="picture" [src]="picture.mobile" alt="">
-</picture>
+<div class="ring-container">
+  <div class="ring" *ngFor="let _ of [1,2,3]"></div>
+  <picture>
+    <source [media]="sourceMedia.DESKTOP" [srcset]="picture.desktop">
+    <source [media]="sourceMedia.TABLET" [srcset]="picture.tablet">
+    <img class="picture" [src]="picture.mobile" alt="">
+  </picture>
+</div>
 <h2 class="heading">
   ZX9<br>
   Speaker
