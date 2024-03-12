@@ -1,0 +1,68 @@
+@use "index" as *;
+@use "sass:map";
+
+:host {
+  background-color: map-get($palette, "black");
+  background-size: cover;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  color: map.get($palette, "white");
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @include mobile {
+    padding: 108px $mobile-horizontal-page-padding 112px;
+    background-image: url("/assets/images/home/mobile/hero.jpg");
+  }
+
+  @include tablet {
+    padding: 126px $tablet-horizontal-page-padding 168px;
+    background-image: url("/assets/images/home/tablet/hero.jpg");
+  }
+
+  @include desktop {
+    padding: 128px $desktop-horizontal-page-padding 158px;
+    background-image: url("/assets/images/home/desktop/hero.jpg");
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.overline {
+  @include overline;
+  opacity: 0.5;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+  margin-top: 24px;
+
+  @include mobile {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 1.286px;
+    margin-top: 16px;
+  }
+}
+
+.text-body {
+  @include body;
+  opacity: 0.75;
+  margin-top: 24px;
+  max-width: 348px;
+}
+
+.link {
+  margin-top: 40px;
+
+  @include mobile {
+    margin-top: 28px;
+  }
+}
