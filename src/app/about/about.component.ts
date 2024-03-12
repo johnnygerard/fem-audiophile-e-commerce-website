@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SourceMedia } from '../types/source-media.enum';
+import { PictureService } from '../../assets/images/picture.service';
 
 @Component({
   selector: 'app-about',
@@ -11,13 +12,5 @@ import { SourceMedia } from '../types/source-media.enum';
 })
 export class AboutComponent {
   readonly sourceMedia = SourceMedia;
-  picture = {
-    mobile: this.#getSrc('mobile'),
-    tablet: this.#getSrc('tablet'),
-    desktop: this.#getSrc('desktop'),
-  };
-
-  #getSrc(device: string): string {
-    return `/assets/images/shared/${device}/best-gear.jpg`;
-  }
+  picture = inject(PictureService).getSources('shared', 'best-gear.jpg');
 }
