@@ -1,19 +1,19 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ProductCategory } from '../types/product-category.enum';
+import { ProductCategory } from '../../types/product-category.enum';
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'app-rich-navigation',
   standalone: true,
   imports: [
-    NgFor,
     RouterLink,
+    NgFor,
   ],
-  templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.scss',
+  templateUrl: './rich-navigation.component.html',
+  styleUrl: './rich-navigation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavigationComponent {
+export class RichNavigationComponent {
   readonly productCategories = Object.values(ProductCategory);
 }

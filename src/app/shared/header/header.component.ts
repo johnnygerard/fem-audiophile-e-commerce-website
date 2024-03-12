@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
-import { MenuComponent } from '../svg/menu/menu.component';
-import { LogoComponent } from '../svg/logo/logo.component';
-import { ShoppingCartComponent } from '../svg/shopping-cart/shopping-cart.component';
+import { MenuComponent } from '../../svg/menu/menu.component';
+import { LogoComponent } from '../../svg/logo/logo.component';
+import { ShoppingCartComponent } from '../../svg/shopping-cart/shopping-cart.component';
 import { RichNavigationComponent } from '../rich-navigation/rich-navigation.component';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';

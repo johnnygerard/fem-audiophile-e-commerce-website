@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SourceMedia } from '../types/source-media.enum';
-import { PictureService } from '../../assets/images/picture.service';
+import { PictureService } from '../../../assets/images/picture.service';
+import { SourceMedia } from '../../types/source-media.enum';
 
 @Component({
   selector: 'app-about',
