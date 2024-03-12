@@ -1,12 +1,11 @@
 @use "index" as *;
-@use "sass:map";
 
 :host {
   background-color: map-get($palette, "black");
   background-size: cover;
   background-position: bottom left;
   background-repeat: no-repeat;
-  color: map.get($palette, "white");
+  color: $color-white;
   width: 100%;
   display: flex;
   flex-direction: column;

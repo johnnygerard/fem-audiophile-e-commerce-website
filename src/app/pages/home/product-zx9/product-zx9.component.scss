@@ -1,5 +1,4 @@
 @use "index" as *;
-@use "sass:map";
 
 $picture-bottom-offset: 14px;
 
@@ -9,9 +8,9 @@ $picture-bottom-offset: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: map.get($palette, "accent");
+  background-color: $color-accent;
   border-radius: 8px;
-  color: map.get($palette, "white");
+  color: $color-white;
   text-align: center;
 
   @include mobile {
@@ -47,7 +46,7 @@ $picture-bottom-offset: 14px;
   transform: translate(-50%, -50%);
 
   border-radius: 50%;
-  border: 1px solid map.get($palette, "white");
+  border: 1px solid $color-white;
   opacity: 0.2;
 
   @include ring-sizes((472px 542px 944px));
@@ -104,15 +103,15 @@ $picture-bottom-offset: 14px;
 
 .link {
   @include button;
-  background-color: map.get($palette, "black");
-  color: map.get($palette, "white");
+  background-color: $color-black;
+  color: $color-white;
 
   &:is(:hover, :focus-visible) {
     background-color: #4c4c4c;
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($palette, "white");
+    outline: 2px solid $color-white;
     outline-offset: -4px;
   }
 }

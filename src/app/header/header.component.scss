@@ -1,5 +1,4 @@
 @use "index" as *;
-@use "sass:map";
 
 :host {
   display: block;
@@ -12,7 +11,7 @@
   justify-content: space-between;
   height: 90px;
   padding: 0 $mobile-horizontal-page-padding;
-  background-color: map.get($palette, "black");
+  background-color: $color-black;
   position: relative;
   z-index: 30;
 
@@ -46,7 +45,7 @@
     top: 90px;
     padding: 32px $mobile-horizontal-page-padding 35px;
     border-radius: 0 0 8px 8px;
-    background: map.get($palette, "white");
+    background: $color-white;
 
     @include tablet {
       padding: 56px $tablet-horizontal-page-padding 66px;
@@ -59,7 +58,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: map.get($palette, "black");
+    background-color: $color-black;
     opacity: 0.4;
     z-index: 10;
   }

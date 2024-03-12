@@ -1,5 +1,4 @@
 @use "index" as *;
-@use "sass:map";
 
 :host {
   display: block;
@@ -7,7 +6,7 @@
 }
 
 .arrow {
-  stroke: map.get($palette, "accent");
+  stroke: $color-accent;
 }
 
 .link-container {
@@ -37,14 +36,14 @@
 .link {
   // Reset anchor style
   text-decoration: none;
-  color: map.get($palette, "black");
+  color: $color-black;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 16px;
   border-radius: 8px;
-  background: map.get($palette, "light-gray");
+  background: $color-light-gray;
   height: 165px;
   padding-bottom: 22px;
 
@@ -84,7 +83,7 @@
 
   &:is(:hover, :focus-visible) .link-label {
     opacity: 1;
-    color: map.get($palette, "accent");
+    color: $color-accent;
   }
 }
 

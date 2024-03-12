@@ -1,5 +1,4 @@
 @use "index" as *;
-@use "sass:map";
 
 :host {
   display: block;
@@ -17,7 +16,7 @@
 }
 
 .link {
-  color: map.get($palette, "white");
+  color: $color-white;
   font-size: 13px;
   font-weight: 700;
   line-height: 25px;
@@ -26,6 +25,6 @@
   text-decoration: none;
 
   &:is(:hover, :focus-visible) {
-    color: map.get($palette, "accent");
+    color: $color-accent;
   }
 }

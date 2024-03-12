@@ -1,5 +1,4 @@
 @use "index" as *;
-@use "sass:map";
 
 :host {
   display: block;
@@ -7,7 +6,7 @@
 
 .footer {
   position: relative;
-  background-color: map.get($palette, "charcoal");
+  background-color: $color-charcoal;
 
   @include mobile {
     padding: 52px $mobile-horizontal-page-padding 38px;
@@ -26,7 +25,7 @@
   position: absolute;
   width: 100px;
   height: 4px;
-  background-color: map.get($palette, "accent");
+  background-color: $color-accent;
   top: 0;
 
   @include mobile {
@@ -65,7 +64,7 @@
 
 .body,
 .copyright {
-  color: map.get($palette, "white");
+  color: $color-white;
   @include body;
   opacity: 0.5;
 }
