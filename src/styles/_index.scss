@@ -84,7 +84,6 @@ $palette: (
 }
 
 @mixin overline {
-  color: map.get($palette, "accent");
   font-size: 14px;
   letter-spacing: 10px;
   text-transform: uppercase;
