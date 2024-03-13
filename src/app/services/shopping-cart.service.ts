@@ -1,7 +1,7 @@
 import { Injectable, computed, effect, signal } from '@angular/core';
-import { ShoppingCartItem } from './types/shopping-cart-item.class';
+import { ShoppingCartItem } from '../types/shopping-cart-item.class';
 import { ProductService } from './product.service';
-import { ShoppingCartItemJSON } from './types/shopping-cart-item-json.type';
+import { ShoppingCartItemJSON } from '../types/shopping-cart-item-json.type';
 
 @Injectable({
   providedIn: 'root'

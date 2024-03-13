@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from './types/product.type';
-import { ProductCategory } from './types/product-category.enum';
+import { Product } from '../types/product.type';
+import { ProductCategory } from '../types/product-category.enum';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

@@ -1,0 +1,18 @@
+@use "index" as *;
+
+:host {
+  display: block;
+}
+
+.link-container {
+  display: flex;
+  gap: 16px;
+}
+
+.link {
+  color: $color-white;
+
+  &:is(:hover, :focus-visible) {
+    color: $color-accent;
+  }
+}

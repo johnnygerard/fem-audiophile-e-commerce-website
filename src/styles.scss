@@ -3,4 +3,33 @@
 
 body {
   font-family: "Manrope", sans-serif;
+  min-width: 280px;
+}
+
+.g-button-accent {
+  @include button;
+  background-color: $color-accent;
+  color: $color-white;
+
+  &:is(:hover, :focus-visible) {
+    background-color: $color-accent-light;
+  }
+}
+
+.g-button-normal {
+  @include button;
+  border: 1px solid $color-black;
+  background-color: $color-white;
+  color: $color-black;
+
+  &:is(:hover, :focus-visible) {
+    border: none;
+    background-color: $color-black;
+    color: $color-white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-white;
+    outline-offset: -4px;
+  }
 }
