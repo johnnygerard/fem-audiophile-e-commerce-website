@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
 
 @Component({
   selector: 'app-dummy',
@@ -12,7 +13,7 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: DummyComponent,
+    component: HomeComponent,
   },
   {
     path: 'headphones',
