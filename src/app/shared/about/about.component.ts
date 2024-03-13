@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { PictureService } from '../../../assets/images/picture.service';
+import { PictureService } from '../../services/picture.service';
 import { SourceMedia } from '../../types/source-media.enum';
 
 @Component({
