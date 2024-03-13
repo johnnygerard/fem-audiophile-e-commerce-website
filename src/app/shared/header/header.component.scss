@@ -9,7 +9,7 @@
     background: $color-hero-background center / contain no-repeat;
 
     & > .header {
-      background-color: initial;
+      background-color: $color-hero-background;
     }
 
     @include mobile {
