@@ -17,6 +17,12 @@
   }
 }
 
+@include mobile {
+  .picture {
+    height: auto;
+  }
+}
+
 .text-container {
   max-width: 572px;
   text-align: center;
