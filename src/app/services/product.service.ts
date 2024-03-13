@@ -13,10 +13,7 @@ export class ProductService {
 
   constructor(private _http: HttpClient) {
     this._http.get<Product[]>('/assets/products.json')
-      .subscribe(products => {
-        this.#products$.next(products);
-        this.#products$.complete();
-      });
+      .subscribe(products => this.#products$.next(products));
   }
 
   getProduct(id: string): Product {
