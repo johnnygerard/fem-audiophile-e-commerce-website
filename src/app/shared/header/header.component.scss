@@ -4,6 +4,26 @@
 :host {
   display: block;
   position: relative;
+
+  &.home-page-header {
+    background: $color-hero-background center / contain no-repeat;
+
+    & > .header {
+      background-color: initial;
+    }
+
+    @include mobile {
+      background-image: url("/assets/images/home/mobile/hero.jpg");
+    }
+
+    @include tablet {
+      background-image: url("/assets/images/home/tablet/hero.jpg");
+    }
+
+    @include desktop {
+      background-image: url("/assets/images/home/desktop/hero.jpg");
+    }
+  }
 }
 
 .header {

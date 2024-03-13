@@ -1,10 +1,6 @@
 @use "index" as *;
 
 :host {
-  background-color: $color-black;
-  background-size: cover;
-  background-position: bottom left;
-  background-repeat: no-repeat;
   color: $color-white;
   width: 100%;
   display: flex;
@@ -14,17 +10,14 @@
 
   @include mobile {
     padding: 108px $mobile-horizontal-page-padding 112px;
-    background-image: url("/assets/images/home/mobile/hero.jpg");
   }
 
   @include tablet {
     padding: 126px $tablet-horizontal-page-padding 168px;
-    background-image: url("/assets/images/home/tablet/hero.jpg");
   }
 
   @include desktop {
     padding: 128px $desktop-horizontal-page-padding 158px;
-    background-image: url("/assets/images/home/desktop/hero.jpg");
     align-items: flex-start;
     text-align: left;
   }

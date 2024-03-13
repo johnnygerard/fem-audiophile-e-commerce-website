@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener } from '@angular/core';
 import { MenuComponent } from '../../svg/menu/menu.component';
 import { LogoComponent } from '../../svg/logo/logo.component';
 import { ShoppingCartComponent } from '../../svg/shopping-cart/shopping-cart.component';
@@ -72,6 +72,11 @@ export class HeaderComponent {
 
   togglePane(): void {
     this.isPaneOpen = !this.isPaneOpen;
+  }
+
+  @HostBinding('class.home-page-header')
+  get isHomePageHeader(): boolean {
+    return this.pageHeader === 'home';
   }
 
   @HostListener('window:resize')
