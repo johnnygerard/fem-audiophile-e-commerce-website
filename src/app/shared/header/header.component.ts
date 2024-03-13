@@ -67,6 +67,9 @@ export class HeaderComponent {
 
       // Trigger change detection
       changeDetectorRef.markForCheck();
+
+      // Close the pane
+      this.isPaneOpen = false;
     });
   }
 
@@ -82,6 +85,11 @@ export class HeaderComponent {
   @HostListener('window:resize')
   onResize(): void {
     this.isDesktop = this.#isDesktop;
+  }
+
+  @HostListener('body:keydown.escape')
+  closePane(): void {
+    this.isPaneOpen = false;
   }
 
   get #isDesktop(): boolean {
