@@ -88,6 +88,10 @@
 
 .copyright {
   font-weight: 700;
+
+  @include mobile {
+    text-align: center;
+  }
 }
 
 .copyright-social-media-container {
