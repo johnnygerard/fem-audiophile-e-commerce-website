@@ -17,8 +17,11 @@
   }
 }
 
-@include mobile {
-  .picture {
+.picture {
+  background-color: $color-light-gray;
+  border-radius: 8px;
+
+  @include mobile {
     height: auto;
   }
 }
