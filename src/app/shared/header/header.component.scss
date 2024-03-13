@@ -1,4 +1,5 @@
 @use "index" as *;
+@use "sass:color";
 
 :host {
   display: block;
@@ -61,5 +62,54 @@
     background-color: $color-black;
     opacity: 0.4;
     z-index: 10;
+  }
+}
+
+.pageCategoryHeader {
+  @include h4;
+  color: $color-white;
+  background-color: $color-black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    height: 102px;
+  }
+
+  @include tablet {
+    height: 246px;
+  }
+
+  @include desktop {
+    height: 240px;
+    @include h2;
+  }
+}
+
+.divider-container {
+  position: relative;
+}
+
+.divider {
+  background-color: color.change($color-white, $alpha: 0.1);
+  position: absolute;
+  top: 0;
+
+  @mixin horizontal-offset($offset) {
+    left: $offset;
+    right: $offset;
+  }
+
+  @include mobile {
+    @include horizontal-offset(0);
+  }
+
+  @include tablet {
+    @include horizontal-offset($tablet-horizontal-page-padding);
+  }
+
+  @include desktop {
+    @include horizontal-offset($desktop-horizontal-page-padding);
   }
 }

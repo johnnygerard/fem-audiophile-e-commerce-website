@@ -18,3 +18,13 @@
   <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
   <div class="pane-backdrop" (click)="isPaneOpen = false"></div>
 </ng-container>
+<div class="divider-container" *ngIf="pageHeader">
+  <hr class="divider">
+  <div class="pageCategoryHeader" *ngIf="pageHeader !== 'home'; else hero">
+    {{ pageHeader }}
+  </div>
+
+  <ng-template #hero>
+    <app-hero />
+  </ng-template>
+</div>
