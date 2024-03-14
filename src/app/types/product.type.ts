@@ -1,3 +1,4 @@
+import { Gallery } from "./gallery.type";
 import { Image } from "./image.type";
 import { OtherProduct } from "./other-product.type";
 import { ProductCategory } from "./product-category.enum";
@@ -13,11 +14,7 @@ export type Product = {
   description: string;
   features: string;
   includes: Includes[];
-  gallery: {
-    first: Image;
-    second: Image;
-    third: Image;
-  };
+  gallery: Gallery;
   others: OtherProduct[];
 };
 
