@@ -1,0 +1,3 @@
+<ng-container *ngIf="product$ | async as product">
+  <app-product-recommendations [recommendedProducts]="product.others" />
+</ng-container>
