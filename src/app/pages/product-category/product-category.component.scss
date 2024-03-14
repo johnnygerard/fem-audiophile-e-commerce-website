@@ -1,0 +1,36 @@
+@use "index" as *;
+
+:host {
+  display: block;
+
+  @include mobile {
+    padding: 64px $mobile-horizontal-page-padding 120px;
+  }
+
+  @include tablet {
+    padding: 120px $tablet-horizontal-page-padding;
+  }
+
+  @include desktop {
+    padding: 160px $desktop-horizontal-page-padding;
+  }
+}
+
+.product-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 120px;
+
+  @include desktop {
+    gap: 160px;
+  }
+}
+
+.rich-navigation {
+  margin: 120px 0;
+
+  @include desktop {
+    margin: 160px 0;
+  }
+}

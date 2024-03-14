@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { ProductCategoryComponent } from './pages/product-category/product-category.component';
 
 @Component({
   selector: 'app-dummy',
@@ -17,15 +18,15 @@ export const routes: Routes = [
   },
   {
     path: 'headphones',
-    component: DummyComponent,
+    component: ProductCategoryComponent,
   },
   {
     path: 'speakers',
-    component: DummyComponent,
+    component: ProductCategoryComponent,
   },
   {
     path: 'earphones',
-    component: DummyComponent,
+    component: ProductCategoryComponent,
   },
   {
     path: 'product/:id',
