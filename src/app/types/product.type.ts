@@ -1,3 +1,5 @@
+import { Image } from "./image.type";
+import { OtherProduct } from "./other-product.type";
 import { ProductCategory } from "./product-category.enum";
 
 export type Product = {
@@ -19,19 +21,7 @@ export type Product = {
   others: OtherProduct[];
 };
 
-type Image = {
-  mobile: string;
-  tablet: string;
-  desktop: string;
-};
-
 type Includes = {
   quantity: number;
   item: string;
-};
-
-type OtherProduct = {
-  id: string;
-  name: string;
-  image: Image;
 };
