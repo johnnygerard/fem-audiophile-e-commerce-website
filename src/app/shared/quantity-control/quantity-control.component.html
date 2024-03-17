@@ -1,0 +1,8 @@
+<button type="button" (click)="onDecrement()" (blur)="onTouched()" tabindex="-1"
+    [disabled]="quantity() === MIN">-</button>
+
+<input #input type="number" name="quantity" [(ngModel)]="quantity"
+    (ngModelChange)="onChange(quantity())" (blur)="onTouched()" [min]="MIN" [max]="MAX" required>
+
+<button type="button" (click)="onIncrement()" (blur)="onTouched()" tabindex="-1"
+    [disabled]="quantity() === MAX">+</button>
