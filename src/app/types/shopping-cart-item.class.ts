@@ -7,11 +7,4 @@ export class ShoppingCartItem {
     readonly name: string,
     readonly price: number,
   ) { }
-
-  get toJSON(): string {
-    return JSON.stringify({
-      id: this.id,
-      quantity: this.quantity,
-    });
-  }
 }

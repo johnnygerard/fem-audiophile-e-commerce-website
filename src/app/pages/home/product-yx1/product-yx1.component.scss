@@ -2,7 +2,6 @@
 
 :host {
   display: flex;
-  width: 100%;
 
   @include mobile {
     flex-direction: column;

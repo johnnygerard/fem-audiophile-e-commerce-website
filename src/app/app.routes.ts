@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductCategoryComponent } from './pages/product-category/product-category.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 @Component({
   selector: 'app-dummy',
@@ -30,7 +31,7 @@ export const routes: Routes = [
   },
   {
     path: 'product/:id',
-    component: DummyComponent,
+    component: ProductDetailsComponent,
   },
   {
     path: 'checkout',
