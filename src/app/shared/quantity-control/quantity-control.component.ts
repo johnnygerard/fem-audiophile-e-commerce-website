@@ -25,7 +25,7 @@ import { AbstractControl, ControlValueAccessor, FormsModule, NG_VALIDATORS, NG_V
 })
 export class QuantityControlComponent implements ControlValueAccessor, Validator {
   readonly MIN = '1';
-  readonly MAX = '9';
+  readonly MAX = '999';
   readonly quantity = model(this.MIN);
   onChange = (_quantity: string) => { };
   onTouched = () => { };
@@ -36,21 +36,17 @@ export class QuantityControlComponent implements ControlValueAccessor, Validator
     return this.inputRef.nativeElement;
   }
 
-  get isValidInput(): boolean {
-    return this.input.validity.valid;
-  }
-
   onDecrement(): void {
-    if (this.isValidInput) this.input.stepDown();
-    else this.input.value = this.MIN;
-
+    if (this.input.value === '') {
+      this.input.value = this.MIN;
+      return;
+    }
+    this.input.stepDown();
     this.input.dispatchEvent(new Event('input'));
   }
 
   onIncrement(): void {
-    if (this.isValidInput) this.input.stepUp();
-    else this.input.value = this.MIN;
-
+    this.input.stepUp();
     this.input.dispatchEvent(new Event('input'));
   }
 

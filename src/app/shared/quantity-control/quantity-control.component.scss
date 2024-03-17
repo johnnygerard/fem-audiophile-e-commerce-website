@@ -1,3 +1,56 @@
+@use "index" as *;
+@use "sass:color";
+
 :host {
-  display: block;
+  display: inline-block;
+  position: relative;
+}
+
+.button,
+.input {
+  width: 16px;
+
+  // Typography
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.left-button {
+  left: 16px;
+}
+
+.right-button {
+  right: 16px;
+}
+
+.button {
+  color: color.change($color-black, $alpha: 0.25);
+  position: absolute;
+
+  // Center the button vertically
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.input {
+  border: none;
+  background-color: transparent;
+  background-color: $color-light-gray;
+  width: 120px;
+  height: 48px;
+  padding: 0 48px;
+  text-align: center;
+
+  // Hide number input arrows
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  // Hide number input arrows on Firefox
+  appearance: textfield;
 }
