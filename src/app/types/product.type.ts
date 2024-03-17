@@ -1,3 +1,4 @@
+import { Includes } from "./includes.type";
 import { Gallery } from "./gallery.type";
 import { Image } from "./image.type";
 import { OtherProduct } from "./other-product.type";
@@ -16,9 +17,4 @@ export type Product = {
   includes: Includes[];
   gallery: Gallery;
   others: OtherProduct[];
-};
-
-type Includes = {
-  quantity: number;
-  item: string;
 };
