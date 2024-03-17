@@ -22,9 +22,12 @@ export class ShoppingCartService {
       if (cartJSON) {
         const deserialized = JSON.parse(cartJSON) as ShoppingCartItemJSON[];
 
-        this.items.set(deserialized.map(
-          item => this.#createItem(item.id, item.quantity)
-        ));
+        _productService.products$.subscribe(products => {
+          if (products.length)
+            this.#items.set(deserialized.map(
+              item => this.#createItem(item.id, item.quantity)
+            ));
+        });
       }
 
       // Keep local storage synchronized with cart
