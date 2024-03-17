@@ -2,7 +2,8 @@
     [disabled]="quantity() === MIN" tabindex="-1" aria-hidden="true" title="Decrement">-</button>
 
 <input class="input" #input type="number" name="quantity" [(ngModel)]="quantity"
-    (ngModelChange)="onChange(quantity())" (blur)="onTouched()" [min]="MIN" [max]="MAX" required>
+    (ngModelChange)="onChange(quantity())" (blur)="onTouched()" [min]="MIN" [max]="MAX" required
+    aria-label="Product quantity">
 
 <button class="button right-button" type="button" (click)="onIncrement()" (blur)="onTouched()"
     [disabled]="quantity() === MAX" tabindex="-1" aria-hidden="true" title="Increment">+</button>
