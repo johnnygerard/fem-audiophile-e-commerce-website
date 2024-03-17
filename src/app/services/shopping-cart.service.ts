@@ -8,9 +8,10 @@ import { ShoppingCartItemJSON } from '../types/shopping-cart-item-json.type';
 })
 export class ShoppingCartService {
   readonly STORAGE_KEY = 'cart';
-  readonly items = signal<ShoppingCartItem[]>([]);
-  readonly size = computed(() => this.items().length);
-  readonly totalPrice = computed(() => this.items().reduce(
+  readonly #items = signal<ShoppingCartItem[]>([]);
+  readonly items = this.#items.asReadonly();
+  readonly size = computed(() => this.#items().length);
+  readonly totalPrice = computed(() => this.#items().reduce(
     (sum, item) => sum + item.price * item.quantity, 0
   ));
 
@@ -33,7 +34,7 @@ export class ShoppingCartService {
       // Keep local storage synchronized with cart
       effect(() => window.localStorage.setItem(
         this.STORAGE_KEY,
-        JSON.stringify(this.items().map(item => ({
+        JSON.stringify(this.#items().map(item => ({
           id: item.id,
           quantity: item.quantity,
         })))
@@ -44,7 +45,7 @@ export class ShoppingCartService {
   }
 
   addItem(id: string, quantity: number): void {
-    this.items.update(items => {
+    this.#items.update(items => {
       const item = items.find(item => item.id === id);
 
       if (item) {
@@ -60,7 +61,7 @@ export class ShoppingCartService {
   }
 
   emptyCart(): void {
-    this.items.set([]);
+    this.#items.set([]);
   }
 
   #createItem(id: string, quantity: number): ShoppingCartItem {
