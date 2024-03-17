@@ -1,7 +1,9 @@
 @use "index" as *;
 
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @include mobile {
     padding: 64px $mobile-horizontal-page-padding 120px;
@@ -19,7 +21,6 @@
 .product-preview-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 120px;
 
   @include desktop {
@@ -27,7 +28,8 @@
   }
 }
 
-.rich-navigation {
+app-rich-navigation {
+  align-self: stretch;
   margin: 120px 0;
 
   @include desktop {
