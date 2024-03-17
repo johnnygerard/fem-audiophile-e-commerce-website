@@ -33,3 +33,14 @@ body {
     outline-offset: -4px;
   }
 }
+
+.g-back-nav {
+  @include body;
+  opacity: 0.5;
+  text-decoration: none;
+
+  &:is(:hover, :focus-visible) {
+    opacity: 1;
+    color: $color-accent;
+  }
+}
