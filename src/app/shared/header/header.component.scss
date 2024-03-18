@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90px;
+  height: $header-height;
   padding: 0 $mobile-horizontal-page-padding;
   background-color: $color-black;
   position: relative;
@@ -42,7 +42,7 @@
   }
 
   @include desktop {
-    height: 96px;
+    height: $header-desktop-height;
     padding: 0 $desktop-horizontal-page-padding;
     justify-content: flex-start;
   }

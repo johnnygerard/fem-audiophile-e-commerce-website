@@ -1,19 +1,27 @@
-<div class="header">
-  <h2 class="heading">Cart ({{ size() }})</h2>
-  <button class="empty-cart" type="button" (click)="emptyCart()">Remove all</button>
-</div>
-<ol class="item-container">
-  <li class="item" *ngFor="let item of items()">
-    <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
-    <p class="item-info">
-      <span class="item-name">{{ item.shortName }}</span>
-      <span class="item-price">{{ item.price | currency:'USD':'$ ':'1.0-0' }}</span>
+<button type="button" (click)="shoppingCartDialog.showModal()" title="Open shopping cart">
+  <svg-shopping-cart />
+</button>
+
+<dialog class="dialog" #shoppingCartDialog>
+  <form class="dialog-form" method="dialog" (submit)="toCheckout()">
+    <div class="header">
+      <h2 class="heading">Cart ({{ size() }})</h2>
+      <button class="empty-cart" type="button" (click)="emptyCart()">Remove all</button>
+    </div>
+    <ol class="item-container">
+      <li class="item" *ngFor="let item of items()">
+        <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
+        <p class="item-info">
+          <span class="item-name">{{ item.shortName }}</span>
+          <span class="item-price">{{ item.price | currency:'USD':'$ ':'1.0-0' }}</span>
+        </p>
+        <app-quantity-control class="small" name="quantity" [(ngModel)]="item.quantity" />
+      </li>
+    </ol>
+    <p class="total-price-container">
+      <span class="total">Total</span>
+      <span class="total-price">{{ totalPrice() | currency:'USD':'$ ':'1.0-0' }}</span>
     </p>
-    <app-quantity-control class="small" name="quantity" [(ngModel)]="item.quantity" />
-  </li>
-</ol>
-<p class="total-price-container">
-  <span class="total">Total</span>
-  <span class="total-price">{{ totalPrice() | currency:'USD':'$ ':'1.0-0' }}</span>
-</p>
-<a class="checkout g-button-accent" routerLink="/checkout">Checkout</a>
+    <button class="checkout g-button-accent">Checkout</button>
+  </form>
+</dialog>

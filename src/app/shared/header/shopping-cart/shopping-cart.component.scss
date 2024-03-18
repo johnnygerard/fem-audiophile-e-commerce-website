@@ -2,12 +2,39 @@
 @use "sass:color";
 
 :host {
+  display: block;
+}
+
+.dialog-form {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
   padding: 32px;
   background-color: $color-white;
   width: 376px;
+
+  @include mobile {
+    width: 336px;
+  }
+}
+
+.dialog {
+  @include mobile {
+    margin: calc($header-height + 24px) auto 0;
+  }
+
+  @include tablet {
+    margin: calc($header-height + 24px) $tablet-horizontal-page-padding 0 auto;
+  }
+
+  @include desktop {
+    margin: calc($header-desktop-height + 32px) $desktop-horizontal-page-padding
+      0 auto;
+  }
+
+  &::backdrop {
+    background-color: color.change($color-black, $alpha: 0.4);
+  }
 }
 
 .heading {

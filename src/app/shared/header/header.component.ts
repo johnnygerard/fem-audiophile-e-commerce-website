@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener } from '@angular/core';
 import { MenuComponent } from '../../svg/menu/menu.component';
 import { LogoComponent } from '../../svg/logo/logo.component';
-import { ShoppingCartSvgComponent } from '../../svg/shopping-cart/shopping-cart.component';
 import { RichNavigationComponent } from '../rich-navigation/rich-navigation.component';
 import { NgIf } from '@angular/common';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { HeroComponent } from '../../pages/home/hero/hero.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const TIMING = '300ms ease';
 
@@ -19,7 +19,7 @@ const TIMING = '300ms ease';
     RouterLink,
     MenuComponent,
     LogoComponent,
-    ShoppingCartSvgComponent,
+    ShoppingCartComponent,
     RichNavigationComponent,
     NavigationComponent,
     HeroComponent,
