@@ -1,4 +1,4 @@
-import { Injectable, computed, effect, signal } from '@angular/core';
+import { Injectable, computed, effect, model, signal } from '@angular/core';
 import { ShoppingCartItem } from '../types/shopping-cart-item.class';
 import { ProductService } from './product.service';
 import { ShoppingCartItemJSON } from '../types/shopping-cart-item-json.type';
@@ -12,7 +12,7 @@ export class ShoppingCartService {
   readonly items = this.#items.asReadonly();
   readonly size = computed(() => this.#items().length);
   readonly totalPrice = computed(() => this.#items().reduce(
-    (sum, item) => sum + item.price * item.quantity, 0
+    (sum, item) => sum + item.price * item.quantity(), 0
   ));
 
   constructor(private _productService: ProductService) {
@@ -36,7 +36,7 @@ export class ShoppingCartService {
         this.STORAGE_KEY,
         JSON.stringify(this.#items().map(item => ({
           id: item.id,
-          quantity: item.quantity,
+          quantity: item.quantity(),
         })))
       ));
     } else {
@@ -49,7 +49,7 @@ export class ShoppingCartService {
       const item = items.find(item => item.id === id);
 
       if (item) {
-        item.quantity += quantity;
+        item.quantity.update(value => value + quantity);
         return [...items];
       }
 
@@ -69,7 +69,7 @@ export class ShoppingCartService {
 
     return new ShoppingCartItem(
       id,
-      quantity,
+      model(quantity),
       shortName,
       price
     );
