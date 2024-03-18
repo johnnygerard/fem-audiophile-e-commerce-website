@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener } from '@angular/core';
 import { MenuComponent } from '../../svg/menu/menu.component';
 import { LogoComponent } from '../../svg/logo/logo.component';
-import { ShoppingCartComponent } from '../../svg/shopping-cart/shopping-cart.component';
+import { ShoppingCartSvgComponent } from '../../svg/shopping-cart/shopping-cart.component';
 import { RichNavigationComponent } from '../rich-navigation/rich-navigation.component';
 import { NgIf } from '@angular/common';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
@@ -19,7 +19,7 @@ const TIMING = '300ms ease';
     RouterLink,
     MenuComponent,
     LogoComponent,
-    ShoppingCartComponent,
+    ShoppingCartSvgComponent,
     RichNavigationComponent,
     NavigationComponent,
     HeroComponent,
