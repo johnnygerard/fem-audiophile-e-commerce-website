@@ -65,12 +65,12 @@ export class ShoppingCartService {
   }
 
   #createItem(id: string, quantity: number): ShoppingCartItem {
-    const { name, price } = this._productService.getProduct(id);
+    const { shortName, price } = this._productService.getProduct(id);
 
     return new ShoppingCartItem(
       id,
       quantity,
-      name,
+      shortName,
       price
     );
   }
