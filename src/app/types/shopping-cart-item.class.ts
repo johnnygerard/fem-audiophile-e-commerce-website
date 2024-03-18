@@ -4,7 +4,7 @@ export class ShoppingCartItem {
   constructor(
     readonly id: string,
     public quantity: number,
-    readonly name: string,
+    readonly shortName: string,
     readonly price: number,
   ) { }
 }
