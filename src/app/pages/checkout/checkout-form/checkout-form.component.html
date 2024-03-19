@@ -1,0 +1,77 @@
+<h1 class="heading">Checkout</h1>
+<form [formGroup]="checkoutForm">
+  <fieldset>
+    <legend>Billing Details</legend>
+    <label>
+      <span>Name</span>
+      <input formControlName="name" placeholder="Alexei Ward" required autocomplete="name">
+    </label>
+    <label>
+      <span>Email Address</span>
+      <input type="email" formControlName="email" placeholder="alexei@mail.com" required
+          autocomplete="email">
+    </label>
+    <label>
+      <span>Phone Number</span>
+      <input type="tel" formControlName="phone" placeholder="+1 202-555-0136" autocomplete="tel">
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Shipping Info</legend>
+    <label>
+      <span>Address</span>
+      <input formControlName="address" placeholder="1137 Williams Avenue" required
+          autocomplete="address-line1">
+    </label>
+    <label>
+      <span>ZIP Code</span>
+      <input formControlName="zip" placeholder="10001" required autocomplete="postal-code">
+    </label>
+    <label>
+      <span>City</span>
+      <input formControlName="city" placeholder="New York" required autocomplete="address-level2">
+    </label>
+    <label>
+      <span>Country</span>
+      <input formControlName="country" placeholder="United States" required
+          autocomplete="country-name">
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Payment Details</legend>
+    <fieldset>
+      <legend>Payment Method</legend>
+      <label>
+        <span>e-Money</span>
+        <input type="radio" formControlName="paymentMethod" [value]="E_MONEY" required>
+      </label>
+      <label>
+        <span>Cash on Delivery</span>
+        <input type="radio" formControlName="paymentMethod" [value]="CASH_ON_DELIVERY" required>
+      </label>
+    </fieldset>
+    <ng-container [ngSwitch]="checkoutForm.controls.paymentMethod.value">
+      <div *ngSwitchCase="E_MONEY">
+        <label>
+          <span>e-Money Number</span>
+          <input formControlName="eMoneyNumber" placeholder="238521993" required
+              autocomplete="cc-number">
+        </label>
+        <label>
+          <span>e-Money PIN</span>
+          <input type="password" formControlName="eMoneyPin" placeholder="6891"
+              [pattern]="PIN_REGEX" required autocomplete="cc-csc">
+        </label>
+      </div>
+      <div *ngSwitchCase="CASH_ON_DELIVERY">
+        <svg-cash-on-delivery />
+        <p>
+          The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives
+          at
+          your residence. Just make sure your address is correct so that your order will not be
+          cancelled.
+        </p>
+      </div>
+    </ng-container>
+  </fieldset>
+</form>
