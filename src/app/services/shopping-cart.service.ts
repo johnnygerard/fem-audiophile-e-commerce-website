@@ -7,6 +7,7 @@ import { ShoppingCartItemJSON } from '../types/shopping-cart-item-json.type';
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  readonly ITEM_MAX_QUANTITY = 999;
   readonly STORAGE_KEY = 'cart';
   readonly #items = signal<ShoppingCartItem[]>([]);
   readonly items = this.#items.asReadonly();
@@ -49,7 +50,7 @@ export class ShoppingCartService {
       const item = items.find(item => item.id === id);
 
       if (item) {
-        item.quantity.update(value => value + quantity);
+        item.quantity.update(value => Math.min(value + quantity, this.ITEM_MAX_QUANTITY));
         return [...items];
       }
 

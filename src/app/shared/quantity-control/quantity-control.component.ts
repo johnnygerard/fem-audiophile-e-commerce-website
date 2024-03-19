@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, HostListener, forwardRef, model } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-quantity-control',
@@ -20,13 +21,15 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class QuantityControlComponent implements ControlValueAccessor {
   @HostBinding('attr.aria-valuemin') readonly MIN = 1;
-  @HostBinding('attr.aria-valuemax') readonly MAX = 999;
+  @HostBinding('attr.aria-valuemax') readonly MAX = this._cart.ITEM_MAX_QUANTITY;
   readonly quantity = model(this.MIN);
   onChange = (_quantity: number) => { };
   onTouched = () => { };
   @HostBinding('attr.tabindex') readonly TAB_INDEX = 0;
   @HostBinding('attr.aria-label') readonly ARIA_LABEL = 'Quantity';
   @HostBinding('attr.role') readonly ROLE = 'spinbutton';
+
+  constructor(private readonly _cart: ShoppingCartService) { }
 
   @HostBinding('attr.aria-valuenow')
   get currentValue(): number {
