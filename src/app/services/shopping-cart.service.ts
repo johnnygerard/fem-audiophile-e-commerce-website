@@ -49,13 +49,14 @@ export class ShoppingCartService {
     this.#items.update(items => {
       const item = items.find(item => item.id === id);
 
-      if (item) {
-        item.quantity.update(value => Math.min(value + quantity, this.ITEM_MAX_QUANTITY));
-        return [...items];
+      if (item)
+        item.quantity.update(
+          value => Math.min(value + quantity, this.ITEM_MAX_QUANTITY)
+        );
+      else {
+        items.push(this.#createItem(id, quantity));
+        this.#sortItemsByPriceDescending(items);
       }
-
-      items.push(this.#createItem(id, quantity));
-      this.#sortItemsByPriceDescending(items);
 
       return [...items];
     });
