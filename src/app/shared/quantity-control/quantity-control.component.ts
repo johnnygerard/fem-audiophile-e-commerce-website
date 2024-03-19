@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, forwardRef, model } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, HostBinding, HostListener, forwardRef, model } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-quantity-control',
@@ -13,69 +14,92 @@ import { AbstractControl, ControlValueAccessor, FormsModule, NG_VALIDATORS, NG_V
       useExisting: forwardRef(() => QuantityControlComponent),
       multi: true,
     },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => QuantityControlComponent),
-      multi: true,
-    }
   ],
   templateUrl: './quantity-control.component.html',
   styleUrl: './quantity-control.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class QuantityControlComponent implements ControlValueAccessor, Validator {
-  readonly MIN = '1';
-  readonly MAX = '999';
+export class QuantityControlComponent implements ControlValueAccessor {
+  @HostBinding('attr.aria-valuemin') readonly MIN = 1;
+  @HostBinding('attr.aria-valuemax') readonly MAX = this._cart.ITEM_MAX_QUANTITY;
   readonly quantity = model(this.MIN);
-  onChange = (_quantity: string) => { };
+  onChange = (_quantity: number) => { };
   onTouched = () => { };
-  onValidatorChange = () => { };
-  @ViewChild('input') inputRef!: ElementRef<HTMLInputElement>;
+  @HostBinding('attr.tabindex') readonly TAB_INDEX = 0;
+  @HostBinding('attr.aria-label') readonly ARIA_LABEL = 'Quantity';
+  @HostBinding('attr.role') readonly ROLE = 'spinbutton';
 
-  get input(): HTMLInputElement {
-    return this.inputRef.nativeElement;
+  constructor(private readonly _cart: ShoppingCartService) { }
+
+  @HostBinding('attr.aria-valuenow')
+  get currentValue(): number {
+    return this.quantity();
+  }
+
+  @HostListener('blur')
+  onBlur(): void {
+    this.onTouched();
+  }
+
+  @HostListener('keydown.ArrowDown', ['$event'])
+  onArrowDown(event: KeyboardEvent): void {
+    event.preventDefault();
+    this.onDecrement();
+  }
+
+  @HostListener('keydown.ArrowUp', ['$event'])
+  onArrowUp(event: KeyboardEvent): void {
+    event.preventDefault();
+    this.onIncrement();
+  }
+
+  @HostListener('keydown.PageDown', ['$event'])
+  onPageDown(event: KeyboardEvent): void {
+    event.preventDefault();
+    this.quantity.update(value => Math.max(value - 10, this.MIN));
+    this.onChange(this.quantity());
+  }
+
+  @HostListener('keydown.PageUp', ['$event'])
+  onPageUp(event: KeyboardEvent): void {
+    event.preventDefault();
+    this.quantity.update(value => Math.min(value + 10, this.MAX));
+    this.onChange(this.quantity());
+  }
+
+  @HostListener('keydown.Home', ['$event'])
+  onHome(event: KeyboardEvent): void {
+    event.preventDefault();
+    this.quantity.set(this.MIN);
+    this.onChange(this.quantity());
+  }
+
+  @HostListener('keydown.End', ['$event'])
+  onEnd(event: KeyboardEvent): void {
+    event.preventDefault();
+    this.quantity.set(this.MAX);
+    this.onChange(this.quantity());
   }
 
   onDecrement(): void {
-    if (this.input.value === '') {
-      this.input.value = this.MIN;
-      return;
-    }
-    this.input.stepDown();
-    this.input.dispatchEvent(new Event('input'));
+    this.quantity.update(value => Math.max(value - 1, this.MIN));
+    this.onChange(this.quantity());
   }
 
   onIncrement(): void {
-    this.input.stepUp();
-    this.input.dispatchEvent(new Event('input'));
+    this.quantity.update(value => Math.min(value + 1, this.MAX));
+    this.onChange(this.quantity());
   }
 
-  writeValue(quantity: string): void {
+  writeValue(quantity: number): void {
     this.quantity.set(quantity);
   }
 
-  registerOnChange(fn: (quantity: string) => void): void {
+  registerOnChange(fn: (quantity: number) => void): void {
     this.onChange = fn;
   }
 
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
-  }
-
-  validate(control: AbstractControl<string, string>): ValidationErrors | null {
-    if (control.value === '') return { required: true };
-
-    const value = Number(control.value);
-
-    if (window.isNaN(value)) return { nan: true };
-    if (!Number.isInteger(value)) return { integer: true };
-    if (value < Number(this.MIN) || value > Number(this.MAX))
-      return { range: true };
-
-    return null;
-  }
-
-  registerOnValidatorChange?(fn: () => void): void {
-    this.onValidatorChange = fn;
   }
 }

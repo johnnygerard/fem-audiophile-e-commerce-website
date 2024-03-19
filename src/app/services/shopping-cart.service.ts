@@ -1,4 +1,4 @@
-import { Injectable, computed, effect, signal } from '@angular/core';
+import { Injectable, computed, effect, model, signal } from '@angular/core';
 import { ShoppingCartItem } from '../types/shopping-cart-item.class';
 import { ProductService } from './product.service';
 import { ShoppingCartItemJSON } from '../types/shopping-cart-item-json.type';
@@ -7,11 +7,13 @@ import { ShoppingCartItemJSON } from '../types/shopping-cart-item-json.type';
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  readonly ITEM_MAX_QUANTITY = 999;
   readonly STORAGE_KEY = 'cart';
-  readonly items = signal<ShoppingCartItem[]>([]);
-  readonly size = computed(() => this.items().length);
-  readonly totalPrice = computed(() => this.items().reduce(
-    (sum, item) => sum + item.price * item.quantity, 0
+  readonly #items = signal<ShoppingCartItem[]>([]);
+  readonly items = this.#items.asReadonly();
+  readonly size = computed(() => this.#items().length);
+  readonly totalPrice = computed(() => this.#items().reduce(
+    (sum, item) => sum + item.price * item.quantity(), 0
   ));
 
   constructor(private _productService: ProductService) {
@@ -22,17 +24,20 @@ export class ShoppingCartService {
       if (cartJSON) {
         const deserialized = JSON.parse(cartJSON) as ShoppingCartItemJSON[];
 
-        this.items.set(deserialized.map(
-          item => this.#createItem(item.id, item.quantity)
-        ));
+        _productService.products$.subscribe(products => {
+          if (products.length)
+            this.#items.set(deserialized.map(
+              item => this.#createItem(item.id, item.quantity)
+            ));
+        });
       }
 
       // Keep local storage synchronized with cart
       effect(() => window.localStorage.setItem(
         this.STORAGE_KEY,
-        JSON.stringify(this.items().map(item => ({
+        JSON.stringify(this.#items().map(item => ({
           id: item.id,
-          quantity: item.quantity,
+          quantity: item.quantity(),
         })))
       ));
     } else {
@@ -41,32 +46,33 @@ export class ShoppingCartService {
   }
 
   addItem(id: string, quantity: number): void {
-    this.items.update(items => {
+    this.#items.update(items => {
       const item = items.find(item => item.id === id);
 
-      if (item) {
-        item.quantity += quantity;
-        return [...items];
+      if (item)
+        item.quantity.update(
+          value => Math.min(value + quantity, this.ITEM_MAX_QUANTITY)
+        );
+      else {
+        items.push(this.#createItem(id, quantity));
+        this.#sortItemsByPriceDescending(items);
       }
-
-      items.push(this.#createItem(id, quantity));
-      this.#sortItemsByPriceDescending(items);
 
       return [...items];
     });
   }
 
   emptyCart(): void {
-    this.items.set([]);
+    this.#items.set([]);
   }
 
   #createItem(id: string, quantity: number): ShoppingCartItem {
-    const { name, price } = this._productService.getProduct(id);
+    const { shortName, price } = this._productService.getProduct(id);
 
     return new ShoppingCartItem(
       id,
-      quantity,
-      name,
+      model(quantity),
+      shortName,
       price
     );
   }

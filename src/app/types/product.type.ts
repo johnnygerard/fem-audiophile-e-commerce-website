@@ -7,6 +7,7 @@ import { ProductCategory } from "./product-category.enum";
 export type Product = {
   id: string;
   name: string;
+  shortName: string;
   image: Image;
   category: ProductCategory;
   categoryImage: Image;
