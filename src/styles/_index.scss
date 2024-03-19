@@ -62,6 +62,12 @@ $color-accent-light: #fbaf85;
   }
 }
 
+@mixin flex-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 // START TYPOGRAPHY STYLES ****************************************************
 @mixin heading($font-size, $letter-spacing, $line-height: normal) {
   font-weight: 700;
