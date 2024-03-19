@@ -15,7 +15,7 @@
           <span class="item-name">{{ item.shortName }}</span>
           <span class="item-price">{{ item.price | currency:'USD':'$ ':'1.0-0' }}</span>
         </p>
-        <app-quantity-control class="small" name="quantity" [(ngModel)]="item.quantity" />
+        <app-quantity-control class="small" [name]="item.id" [(ngModel)]="item.quantity" />
       </li>
     </ol>
     <p class="total-price-container">
