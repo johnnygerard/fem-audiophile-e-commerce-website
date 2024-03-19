@@ -8,7 +8,7 @@
       <h2 class="heading">Cart ({{ size() }})</h2>
       <button class="empty-cart" type="button" (click)="emptyCart()">Remove all</button>
     </div>
-    <ol class="item-container">
+    <ul class="item-container">
       <li class="item" *ngFor="let item of items()">
         <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
         <p class="item-info">
@@ -17,7 +17,7 @@
         </p>
         <app-quantity-control class="small" [name]="item.id" [(ngModel)]="item.quantity" />
       </li>
-    </ol>
+    </ul>
     <p class="total-price-container">
       <span class="total">Total</span>
       <span class="total-price">{{ totalPrice() | currency:'USD':'$ ':'1.0-0' }}</span>
