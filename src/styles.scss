@@ -1,6 +1,11 @@
 @use "reset";
 @use "index" as *;
 
+::selection {
+  background-color: $color-accent;
+  color: $color-white;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   min-width: 280px;

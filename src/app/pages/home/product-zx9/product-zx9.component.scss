@@ -2,6 +2,11 @@
 
 $picture-bottom-offset: 14px;
 
+::selection {
+  background-color: $color-white;
+  color: $color-accent;
+}
+
 :host {
   overflow: clip; // Prevents the rings from overflowing the container
   position: relative;
