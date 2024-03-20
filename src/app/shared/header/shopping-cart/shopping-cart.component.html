@@ -2,7 +2,7 @@
   <svg-shopping-cart />
 </button>
 
-<dialog class="dialog" #shoppingCartDialog>
+<dialog id="shoppingCartDialog" class="dialog" #shoppingCartDialog>
   <form class="dialog-form" method="dialog" (submit)="toCheckout()">
     <div class="header">
       <h2 class="heading">Cart ({{ size() }})</h2>

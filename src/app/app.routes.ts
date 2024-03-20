@@ -1,15 +1,8 @@
-import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductCategoryComponent } from './pages/product-category/product-category.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-
-@Component({
-  selector: 'app-dummy',
-  template: '<p>dummy works!</p>',
-  standalone: true,
-})
-class DummyComponent { }
 
 export const routes: Routes = [
   {
@@ -35,7 +28,7 @@ export const routes: Routes = [
   },
   {
     path: 'checkout',
-    component: DummyComponent,
+    component: CheckoutComponent,
   },
   {
     path: '**',
