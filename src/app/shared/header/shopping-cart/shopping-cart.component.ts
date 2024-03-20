@@ -35,7 +35,7 @@ export class ShoppingCartComponent {
     this._cart.emptyCart();
   }
 
-  toCheckout(): void {
+  checkOut(): void {
     this._router.navigateByUrl('/checkout');
   }
 }
