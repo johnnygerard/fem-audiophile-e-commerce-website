@@ -9,4 +9,8 @@ export class ShoppingCartItem {
     readonly shortName: string,
     readonly price: number,
   ) { }
+
+  get totalPrice(): number {
+    return this.price * this.quantity();
+  }
 }
