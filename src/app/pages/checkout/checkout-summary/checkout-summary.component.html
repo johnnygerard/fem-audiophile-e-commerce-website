@@ -7,18 +7,18 @@
         <span class="item-name">{{ item.shortName }}</span>
         <span class="item-quantity">x{{ itemQuantities[i] }}</span>
       </p>
-      <span class="item-price">{{ item.price | currency:'USD':'$ ':'1.0-0' }}</span>
+      <span class="item-price">{{ item.price | appCurrency }}</span>
     </div>
   </li>
 </ul>
 <ul class="cost-container-list">
   <li class="cost-container" *ngFor="let costEntry of costEntries">
     <span class="cost-label">{{ costEntry.label }}</span>
-    <span class="cost-value">{{ costEntry.value | currency:'USD':'$ ':'1.0-0' }}</span>
+    <span class="cost-value">{{ costEntry.value | appCurrency }}</span>
   </li>
 </ul>
 <p class="cost-container grand-total">
   <span class="cost-label">Grand total</span>
-  <span class="cost-value">{{ grandTotal | currency:'USD':'$ ':'1.0-0' }}</span>
+  <span class="cost-value">{{ grandTotal | appCurrency }}</span>
 </p>
 <button class="dialog-button g-button-accent" form="checkout-form">Continue & Pay</button>

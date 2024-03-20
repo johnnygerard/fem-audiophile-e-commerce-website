@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
-import { CurrencyPipe, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
+import { AppCurrencyPipe } from '../../../app-currency.pipe';
 
 @Component({
   selector: 'app-checkout-summary',
   standalone: true,
   imports: [
     NgFor,
-    CurrencyPipe,
+    AppCurrencyPipe,
   ],
   templateUrl: './checkout-summary.component.html',
   styleUrl: './checkout-summary.component.scss',
