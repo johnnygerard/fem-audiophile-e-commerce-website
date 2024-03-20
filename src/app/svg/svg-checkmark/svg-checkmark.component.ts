@@ -5,15 +5,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <svg width="26" height="21" viewBox="0 0 26 21" fill="none">
-      <path d="M1.75391 11.3329L8.50542 18.0844L24.3085 2.28128" stroke="white" stroke-width="4"/>
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="32"/>
+      <path d="M20.7539 33.3329L27.5054 40.0844L43.3085 24.2813" stroke="white" stroke-width="4"/>
     </svg>
   `,
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
+  styleUrl: './svg-checkmark.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SvgCheckmarkComponent {
