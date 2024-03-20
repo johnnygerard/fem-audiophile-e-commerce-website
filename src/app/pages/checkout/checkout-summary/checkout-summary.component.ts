@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ShoppingCartService } from '../../../services/shopping-cart.service';
 import { NgFor } from '@angular/common';
 import { AppCurrencyPipe } from '../../../app-currency.pipe';
+import { OrderService } from '../../../services/order.service';
+import { PriceService } from '../../../services/price.service';
 
 @Component({
   selector: 'app-checkout-summary',
@@ -15,20 +16,17 @@ import { AppCurrencyPipe } from '../../../app-currency.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckoutSummaryComponent {
-  readonly VAT_RATE = 0.2;
-  readonly items = this._cart.items();
-  readonly itemQuantities = this.items.map(item => item.quantity());
-  readonly totalPrice = this._cart.totalPrice(); // VAT included
-  readonly shippingCost = 50;
-  readonly vat = this.totalPrice * this.VAT_RATE;
-  readonly grandTotal = this.totalPrice + this.shippingCost;
+  readonly items = this._order.items;
+  readonly itemQuantities = this._order.itemQuantities;
+  readonly priceBreakdown = this._price.getPriceBreakdown(this.items);
   readonly costEntries = [
-    { label: 'Total', value: this.totalPrice },
-    { label: 'Shipping', value: this.shippingCost },
-    { label: 'VAT (included)', value: this.vat },
+    { label: 'Total', value: this.priceBreakdown.subtotal },
+    { label: 'Shipping', value: this.priceBreakdown.shipping },
+    { label: 'VAT (included)', value: this.priceBreakdown.vat },
   ];
 
   constructor(
-    private readonly _cart: ShoppingCartService,
+    private readonly _order: OrderService,
+    private readonly _price: PriceService,
   ) { }
 }

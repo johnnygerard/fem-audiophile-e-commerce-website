@@ -19,6 +19,6 @@
 </ul>
 <p class="cost-container grand-total">
   <span class="cost-label">Grand total</span>
-  <span class="cost-value">{{ grandTotal | appCurrency }}</span>
+  <span class="cost-value">{{ priceBreakdown.total | appCurrency }}</span>
 </p>
 <button class="dialog-button g-button-accent" form="checkout-form">Continue & Pay</button>
