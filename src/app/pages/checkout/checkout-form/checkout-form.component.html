@@ -1,0 +1,109 @@
+<h1 class="heading">Checkout</h1>
+<form id="checkout-form" class="form" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()"
+    spellcheck="false">
+  <fieldset>
+    <legend class="subheading">Billing Details</legend>
+    <div class="text-field-pair">
+      <label class="text-field-label">
+        <input class="text-field" formControlName="name" placeholder="Alexei Ward" required
+            autocomplete="name">
+        <span class="text-field-label-value">Name</span>
+        <span class="error" *ngIf="isRequired(checkoutForm.controls.name)">Required</span>
+      </label>
+      <label class="text-field-label">
+        <input class="text-field" type="email" formControlName="email" placeholder="alexei@mail.com"
+            required autocomplete="email">
+        <span class="text-field-label-value">Email Address</span>
+        <span class="error" *ngIf="isRequired(checkoutForm.controls.email)">Required</span>
+        <span class="error" *ngIf="isEmailInvalid">Wrong format</span>
+      </label>
+    </div>
+    <label class="text-field-label half-width phone-row">
+      <input class="text-field" type="tel" formControlName="phone" placeholder="+1 202-555-0136"
+          autocomplete="tel">
+      <span class="text-field-label-value">Phone Number</span>
+      <span class="error" *ngIf="isRequired(checkoutForm.controls.phone)">Required</span>
+    </label>
+  </fieldset>
+  <fieldset class="shipping-info">
+    <legend class="subheading">Shipping Info</legend>
+    <label class="text-field-label">
+      <input class="text-field" formControlName="address" placeholder="1137 Williams Avenue"
+          required autocomplete="address-line1">
+      <span class="text-field-label-value">Address</span>
+      <span class="error" *ngIf="isRequired(checkoutForm.controls.address)">Required</span>
+    </label>
+    <div class="text-field-pair zip-city-row">
+      <label class="text-field-label">
+        <input class="text-field" formControlName="zip" placeholder="10001" required
+            autocomplete="postal-code">
+        <span class="text-field-label-value">ZIP Code</span>
+        <span class="error" *ngIf="isRequired(checkoutForm.controls.zip)">Required</span>
+      </label>
+      <label class="text-field-label">
+        <input class="text-field" formControlName="city" placeholder="New York" required
+            autocomplete="address-level2">
+        <span class="text-field-label-value">City</span>
+        <span class="error" *ngIf="isRequired(checkoutForm.controls.city)">Required</span>
+      </label>
+    </div>
+    <label class="text-field-label half-width">
+      <input class="text-field" formControlName="country" placeholder="United States" required
+          autocomplete="country-name" spellcheck>
+      <span class="text-field-label-value">Country</span>
+      <span class="error" *ngIf="isRequired(checkoutForm.controls.country)">Required</span>
+    </label>
+  </fieldset>
+  <fieldset class="payment-details">
+    <legend class="subheading">Payment Details</legend>
+    <!-- Role "group" is used instead of fieldset because flex layout is not fully supported -->
+    <div class="radio-group-container" role="group" aria-labelledby="payment-methods-label">
+      <div id="payment-methods-label" class="radio-group-label">Payment Method</div>
+      <div class="radio-group half-width">
+        <label class="radio-input-label"
+            [class.checked]="checkoutForm.controls.paymentMethod.value === E_MONEY">
+          <div class="radio-button"></div>
+          <span>e-Money</span>
+          <input class="radio-input" type="radio" formControlName="paymentMethod" [value]="E_MONEY"
+              (change)="addEMoneyControls()" required>
+        </label>
+        <label class="radio-input-label"
+            [class.checked]="checkoutForm.controls.paymentMethod.value === CASH_ON_DELIVERY">
+          <div class="radio-button"></div>
+          <span>Cash on Delivery</span>
+          <input class="radio-input" type="radio" formControlName="paymentMethod"
+              [value]="CASH_ON_DELIVERY" (change)="removeEMoneyControls()" required>
+        </label>
+      </div>
+    </div>
+    <ng-container [ngSwitch]="checkoutForm.controls.paymentMethod.value">
+      <div class="text-field-pair e-money-fields" *ngSwitchCase="E_MONEY">
+        <label class="text-field-label">
+          <input class="text-field" formControlName="eMoneyNumber" placeholder="238521993" required
+              autocomplete="cc-number">
+          <span class="text-field-label-value">e-Money Number</span>
+          <span class="error"
+              *ngIf="isRequired(checkoutForm.controls.eMoneyNumber!)">Required</span>
+        </label>
+        <label class="text-field-label">
+          <input class="text-field" type="password" formControlName="eMoneyPin" placeholder="6891"
+              [pattern]="PIN_REGEX" required autocomplete="cc-csc">
+          <span class="text-field-label-value">e-Money PIN</span>
+          <span class="error" *ngIf="isRequired(checkoutForm.controls.eMoneyPin!)">Required</span>
+          <span class="error" *ngIf="isPinInvalid">Wrong format</span>
+        </label>
+      </div>
+      <div class="cash-on-delivery" *ngSwitchCase="CASH_ON_DELIVERY">
+        <svg-cash-on-delivery />
+        <p class="cash-on-delivery-paragraph">
+          The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives
+          at
+          your residence. Just make sure your address is correct so that your order will not be
+          cancelled.
+        </p>
+      </div>
+    </ng-container>
+  </fieldset>
+</form>
+
+<app-order-confirmation *ngIf="isOrderConfirmed" />

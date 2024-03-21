@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
-import { CurrencyPipe, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { QuantityControlComponent } from '../../quantity-control/quantity-control.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShoppingCartSvgComponent } from '../../../svg/shopping-cart/shopping-cart.component';
+import { AppCurrencyPipe } from '../../../app-currency.pipe';
+import { OrderService } from '../../../services/order.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,7 +14,7 @@ import { ShoppingCartSvgComponent } from '../../../svg/shopping-cart/shopping-ca
   imports: [
     FormsModule,
     NgFor,
-    CurrencyPipe,
+    AppCurrencyPipe,
     QuantityControlComponent,
     ShoppingCartSvgComponent,
   ],
@@ -27,6 +29,7 @@ export class ShoppingCartComponent {
 
   constructor(
     private readonly _cart: ShoppingCartService,
+    private readonly _order: OrderService,
     private readonly _router: Router,
   ) { }
 
@@ -34,7 +37,8 @@ export class ShoppingCartComponent {
     this._cart.emptyCart();
   }
 
-  toCheckout(): void {
+  checkOut(): void {
+    this._order.createOrder();
     this._router.navigateByUrl('/checkout');
   }
 }

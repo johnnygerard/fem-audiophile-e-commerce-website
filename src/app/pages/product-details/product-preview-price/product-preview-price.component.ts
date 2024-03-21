@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
 import { Product } from '../../../types/product.type';
 import { SourceMedia } from '../../../types/source-media.enum';
-import { CurrencyPipe, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { QuantityControlComponent } from '../../../shared/quantity-control/quantity-control.component';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
+import { AppCurrencyPipe } from '../../../app-currency.pipe';
 
 @Component({
   selector: 'app-product-preview-price',
@@ -12,7 +13,7 @@ import { ShoppingCartService } from '../../../services/shopping-cart.service';
   imports: [
     NgIf,
     FormsModule,
-    CurrencyPipe,
+    AppCurrencyPipe,
     QuantityControlComponent,
   ],
   templateUrl: './product-preview-price.component.html',

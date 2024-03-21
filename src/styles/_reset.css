@@ -89,3 +89,12 @@ dialog {
   border: none;
   padding: 0;
 }
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}

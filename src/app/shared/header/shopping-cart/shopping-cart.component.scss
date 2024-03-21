@@ -37,6 +37,10 @@
   }
 }
 
+.header {
+  @include flex-center-space-between;
+}
+
 .heading {
   @include h6;
 }
@@ -50,13 +54,6 @@
     opacity: 1;
     color: $color-accent;
   }
-}
-
-.header,
-.total-price-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .item {
@@ -107,6 +104,10 @@ app-quantity-control {
   &-price {
     font-size: 18px;
     font-weight: 700;
+  }
+
+  &-price-container {
+    @include flex-center-space-between;
   }
 }
 
