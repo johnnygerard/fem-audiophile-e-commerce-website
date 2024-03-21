@@ -2,6 +2,8 @@ import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroupDirective, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { CashOnDeliveryComponent } from '../../../svg/cash-on-delivery/cash-on-delivery.component';
+import { ShoppingCartService } from '../../../services/shopping-cart.service';
+import { OrderConfirmationComponent } from '../order-confirmation/order-confirmation.component';
 
 type FormGroupControl = string | [string, (ValidatorFn | ValidatorFn[])];
 
@@ -14,6 +16,7 @@ type FormGroupControl = string | [string, (ValidatorFn | ValidatorFn[])];
     NgSwitchCase,
     ReactiveFormsModule,
     CashOnDeliveryComponent,
+    OrderConfirmationComponent,
   ],
   templateUrl: './checkout-form.component.html',
   styleUrl: './checkout-form.component.scss',
@@ -48,11 +51,18 @@ export class CheckoutFormComponent {
     country: ['', Validators.required],
     paymentMethod: ['', Validators.required],
   });
+  isOrderConfirmed = false;
 
-  constructor(private readonly _formBuilder: FormBuilder) { }
+  constructor(
+    private readonly _formBuilder: FormBuilder,
+    private readonly _cart: ShoppingCartService,
+  ) { }
 
   onSubmit(): void {
+    this._cart.emptyCart();
 
+    // Open the order confirmation dialog
+    this.isOrderConfirmed = true;
   }
 
   addEMoneyControls(): void {
