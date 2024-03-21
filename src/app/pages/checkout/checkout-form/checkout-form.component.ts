@@ -59,6 +59,7 @@ export class CheckoutFormComponent {
   ) { }
 
   onSubmit(): void {
+    if (this.checkoutForm.invalid) return;
     this._cart.emptyCart();
 
     // Open the order confirmation dialog
