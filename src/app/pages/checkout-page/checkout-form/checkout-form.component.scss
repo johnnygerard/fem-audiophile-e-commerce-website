@@ -9,6 +9,7 @@ $form-control-border-color: $color-accent;
   height: 56px;
   border-radius: 8px;
   border: 1px solid $color-input-border;
+  transition: border-color $short-transition;
   background-color: $color-white;
 }
 

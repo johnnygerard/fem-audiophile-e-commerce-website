@@ -24,6 +24,7 @@
 .button {
   width: 16px;
   color: color.change($color-black, $alpha: 0.25);
+  transition: $short-color-transition;
   outline: none;
 
   &:hover {

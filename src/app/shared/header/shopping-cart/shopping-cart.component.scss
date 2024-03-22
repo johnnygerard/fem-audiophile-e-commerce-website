@@ -48,6 +48,7 @@
 .empty-cart {
   @include body;
   text-decoration: underline;
+  transition: $short-color-transition;
 
   &:hover {
     color: $color-accent;

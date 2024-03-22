@@ -12,10 +12,12 @@ body {
 
 .g-button-accent {
   @include button;
-  background-color: $color-accent;
   color: $color-white;
+  transition: background-color $short-transition;
+  background-color: $color-accent;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     background-color: $color-accent-light;
   }
 }
@@ -26,8 +28,14 @@ body {
   background-color: $color-white;
   color: $color-black;
 
-  &:hover, &:focus-visible {
-    border: none;
+  transition: {
+    duration: 0.4s;
+    timing-function: ease;
+    property: color, background-color, border-color;
+  }
+
+  &:hover,
+  &:focus-visible {
     background-color: $color-black;
     color: $color-white;
   }
@@ -41,8 +49,10 @@ body {
 .g-back-nav {
   @include body;
   text-decoration: none;
+  transition: $short-color-transition;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     color: $color-accent;
   }
 }
