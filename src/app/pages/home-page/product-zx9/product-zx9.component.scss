@@ -108,8 +108,9 @@ $picture-bottom-offset: 14px;
 
 .link {
   @include button;
-  background-color: $color-black;
   color: $color-white;
+  transition: background-color $short-transition;
+  background-color: $color-black;
 
   &:is(:hover, :focus-visible) {
     background-color: #4c4c4c;

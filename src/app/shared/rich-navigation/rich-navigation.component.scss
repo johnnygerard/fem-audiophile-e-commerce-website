@@ -79,6 +79,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: color.change($color-black, $alpha: 0.5);
+    transition: $short-color-transition;
   }
 
   &:is(:hover, :focus-visible) .link-label {
