@@ -16,7 +16,7 @@ body {
   background-color: $color-accent;
   color: $color-white;
 
-  &:is(:hover, :focus-visible) {
+  &:hover, &:focus-visible {
     background-color: $color-accent-light;
   }
 }
@@ -27,7 +27,7 @@ body {
   background-color: $color-white;
   color: $color-black;
 
-  &:is(:hover, :focus-visible) {
+  &:hover, &:focus-visible {
     border: none;
     background-color: $color-black;
     color: $color-white;
@@ -44,7 +44,7 @@ body {
   opacity: 0.5;
   text-decoration: none;
 
-  &:is(:hover, :focus-visible) {
+  &:hover, &:focus-visible {
     opacity: 1;
     color: $color-accent;
   }
