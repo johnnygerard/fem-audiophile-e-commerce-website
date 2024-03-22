@@ -17,14 +17,6 @@
   }
 }
 
-.back-nav {
-  @include body;
-
-  &:is(:hover, :focus-visible) {
-    color: $color-accent;
-  }
-}
-
 .checkout-container {
   margin-top: 24px;
   display: flex;
