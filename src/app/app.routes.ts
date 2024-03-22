@@ -25,6 +25,7 @@ export const routes: Routes = [
   {
     path: 'product/:id',
     component: ProductDetailsPageComponent,
+    title: productDetailsTitleResolver,
   },
   {
     path: 'checkout',
