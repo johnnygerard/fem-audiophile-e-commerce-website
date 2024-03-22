@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "index" as *;
 
 $picture-bottom-offset: 14px;
@@ -51,8 +52,7 @@ $picture-bottom-offset: 14px;
   transform: translate(-50%, -50%);
 
   border-radius: 50%;
-  border: 1px solid $color-white;
-  opacity: 0.2;
+  border: 1px solid color.change($color-white, $alpha: 0.2);
 
   @include ring-sizes((472px 542px 944px));
 
@@ -97,7 +97,7 @@ $picture-bottom-offset: 14px;
 
 .text-body {
   @include body;
-  opacity: 0.75;
+  color: color.change($color-white, $alpha: 0.75);
   margin: 24px 0 40px;
   max-width: 348px;
 

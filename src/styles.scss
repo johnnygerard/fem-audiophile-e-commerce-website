@@ -40,11 +40,9 @@ body {
 
 .g-back-nav {
   @include body;
-  opacity: 0.5;
   text-decoration: none;
 
   &:hover, &:focus-visible {
-    opacity: 1;
     color: $color-accent;
   }
 }

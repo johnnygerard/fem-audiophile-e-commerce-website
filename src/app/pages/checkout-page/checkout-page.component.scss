@@ -19,10 +19,8 @@
 
 .back-nav {
   @include body;
-  opacity: 0.5;
 
   &:is(:hover, :focus-visible) {
-    opacity: 1;
     color: $color-accent;
   }
 }

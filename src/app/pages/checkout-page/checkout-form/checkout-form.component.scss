@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "index" as *;
 
 $text-field-vertical-gap: 24px;
@@ -185,8 +186,7 @@ $form-control-border-color: $color-accent;
   caret-color: $color-accent;
 
   &::placeholder {
-    opacity: 0.4;
-    color: $color-black;
+    color: color.change($color-black, $alpha: 0.4);
   }
 
   // START ORDER SENSITIVE REGION
@@ -225,7 +225,6 @@ $form-control-border-color: $color-accent;
 
     // Typography
     @include body;
-    opacity: 0.5;
     font-weight: 400;
   }
 }

@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "index" as *;
 
 :host {
@@ -33,7 +34,6 @@
 
 .text-body {
   @include body;
-  opacity: 0.5;
   margin-top: 32px;
 
   @include mobile {
@@ -99,7 +99,7 @@
   padding-left: 40px;
 
   // Typography
-  opacity: 0.5;
+  color: color.change($color-black, $alpha: 0.5);
   text-transform: capitalize;
 
   @include mobile {

@@ -1,5 +1,5 @@
-@use "index" as *;
 @use "sass:color";
+@use "index" as *;
 
 :host {
   display: flex;
@@ -52,7 +52,7 @@
   }
 
   &-quantity {
-    opacity: 0.5;
+    color: color.change($color-black, $alpha: 0.5);
   }
 
   &-price {
@@ -84,7 +84,6 @@
 
   &-label {
     @include body;
-    opacity: 0.5;
     text-transform: uppercase;
   }
 

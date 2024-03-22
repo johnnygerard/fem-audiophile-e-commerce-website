@@ -50,7 +50,6 @@
 
 .text-body {
   @include body;
-  opacity: 0.5;
 
   @include mobile {
     max-width: 328px;
