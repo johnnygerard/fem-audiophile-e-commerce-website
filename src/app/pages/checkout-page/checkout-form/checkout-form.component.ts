@@ -1,11 +1,10 @@
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroupDirective, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroupDirective, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
 import { OrderConfirmationComponent } from '../order-confirmation/order-confirmation.component';
 import { SvgCashOnDeliveryComponent } from '../../../svg/svg-cash-on-delivery.component';
-
-type FormGroupControl = string | [string, (ValidatorFn | ValidatorFn[])];
+import { CheckoutFormControls } from './checkout-form-controls.type';
 
 @Component({
   selector: 'app-checkout-form',
@@ -27,18 +26,7 @@ export class CheckoutFormComponent {
   readonly CASH_ON_DELIVERY = 'cash-on-delivery';
   readonly PIN_REGEX = '[0-9]{4}';
   readonly ngForm = viewChild.required(FormGroupDirective);
-  readonly checkoutForm = this._formBuilder.group<{
-    name: FormGroupControl;
-    email: FormGroupControl;
-    phone: FormGroupControl;
-    address: FormGroupControl;
-    zip: FormGroupControl;
-    city: FormGroupControl;
-    country: FormGroupControl;
-    paymentMethod: FormGroupControl;
-    eMoneyNumber?: FormGroupControl;
-    eMoneyPin?: FormGroupControl;
-  }>({
+  readonly checkoutForm = this._formBuilder.group<CheckoutFormControls>({
     name: ['', Validators.required],
     email: ['', [
       Validators.required,
