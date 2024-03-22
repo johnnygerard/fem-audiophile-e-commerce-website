@@ -9,33 +9,33 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomePageComponent,
     title: 'Home',
+    component: HomePageComponent,
   },
   {
     path: 'headphones',
-    component: ProductCategoryPageComponent,
     title: 'Headphones',
+    component: ProductCategoryPageComponent,
   },
   {
     path: 'speakers',
-    component: ProductCategoryPageComponent,
     title: 'Speakers',
+    component: ProductCategoryPageComponent,
   },
   {
     path: 'earphones',
-    component: ProductCategoryPageComponent,
     title: 'Earphones',
+    component: ProductCategoryPageComponent,
   },
   {
     path: 'product/:id',
-    component: ProductDetailsPageComponent,
     title: productDetailsTitleResolver,
+    component: ProductDetailsPageComponent,
   },
   {
     path: 'checkout',
-    component: CheckoutPageComponent,
     title: 'Checkout',
+    component: CheckoutPageComponent,
   },
   {
     path: '**',
