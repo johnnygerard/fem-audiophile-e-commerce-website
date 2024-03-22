@@ -25,11 +25,11 @@ import { AboutComponent } from '../../shared/about/about.component';
     RichNavigationComponent,
     AboutComponent,
   ],
-  templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.scss',
+  templateUrl: './product-details-page.component.html',
+  styleUrl: './product-details-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailsComponent implements OnChanges {
+export class ProductDetailsPageComponent implements OnChanges {
   product$ = of(null as Product | null);
   id = input.required<string>();
 

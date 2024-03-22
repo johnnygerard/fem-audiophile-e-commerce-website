@@ -1,34 +1,34 @@
 import { Routes } from '@angular/router';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ProductCategoryComponent } from './pages/product-category/product-category.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ProductCategoryPageComponent } from './pages/product-category-page/product-category-page.component';
+import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent,
+    component: HomePageComponent,
   },
   {
     path: 'headphones',
-    component: ProductCategoryComponent,
+    component: ProductCategoryPageComponent,
   },
   {
     path: 'speakers',
-    component: ProductCategoryComponent,
+    component: ProductCategoryPageComponent,
   },
   {
     path: 'earphones',
-    component: ProductCategoryComponent,
+    component: ProductCategoryPageComponent,
   },
   {
     path: 'product/:id',
-    component: ProductDetailsComponent,
+    component: ProductDetailsPageComponent,
   },
   {
     path: 'checkout',
-    component: CheckoutComponent,
+    component: CheckoutPageComponent,
   },
   {
     path: '**',

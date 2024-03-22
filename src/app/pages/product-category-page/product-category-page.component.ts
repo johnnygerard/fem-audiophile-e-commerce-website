@@ -18,11 +18,11 @@ import { AboutComponent } from '../../shared/about/about.component';
     RichNavigationComponent,
     AboutComponent,
   ],
-  templateUrl: './product-category.component.html',
-  styleUrl: './product-category.component.scss',
+  templateUrl: './product-category-page.component.html',
+  styleUrl: './product-category-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductCategoryComponent {
+export class ProductCategoryPageComponent {
   readonly products$: Observable<Product[]>;
 
   constructor(productService: ProductService, route: ActivatedRoute) {

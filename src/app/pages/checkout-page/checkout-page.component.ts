@@ -10,11 +10,11 @@ import { Location } from '@angular/common';
     CheckoutFormComponent,
     CheckoutSummaryComponent,
   ],
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.scss',
+  templateUrl: './checkout-page.component.html',
+  styleUrl: './checkout-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CheckoutComponent {
+export class CheckoutPageComponent {
   constructor(private _location: Location) { }
 
   goBack(): void {

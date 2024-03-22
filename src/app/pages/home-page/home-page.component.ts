@@ -15,10 +15,10 @@ import { AboutComponent } from '../../shared/about/about.component';
     ProductYX1Component,
     AboutComponent,
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './home-page.component.html',
+  styleUrl: './home-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent {
+export class HomePageComponent {
 
 }

@@ -4,7 +4,7 @@ import { NgIf } from '@angular/common';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { NavigationComponent } from '../navigation/navigation.component';
-import { HeroComponent } from '../../pages/home/hero/hero.component';
+import { HeroComponent } from '../../pages/home-page/hero/hero.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SvgMenuComponent } from '../../svg/svg-menu.component';
 import { SvgLogoComponent } from '../../svg/svg-logo.component';
