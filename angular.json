@@ -59,6 +59,7 @@
               ]
             },
             "styles": [
+              "src/reset.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -130,6 +131,7 @@
               ]
             },
             "styles": [
+              "src/reset.css",
               "src/styles.scss"
             ],
             "scripts": []

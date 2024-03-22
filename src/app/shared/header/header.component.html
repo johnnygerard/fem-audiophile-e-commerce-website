@@ -1,11 +1,11 @@
 <div class="header">
   <button type="button" (click)="togglePane()" *ngIf="!isDesktop"
       [title]="(isPaneOpen ? 'Close' : 'Open') + ' navigation pane'">
-    <svg-menu />
+    <app-svg-menu />
   </button>
   <a class="logo-container" [routerLink]="isDesktop ? null : '/'"
       [attr.aria-label]="isDesktop ? null : 'Home'" [attr.role]="isDesktop ? 'none' : 'link'">
-    <svg-logo />
+    <app-svg-logo />
   </a>
   <app-navigation class="navigation" *ngIf="isDesktop" />
   <app-shopping-cart />

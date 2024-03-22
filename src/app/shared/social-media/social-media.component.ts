@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FacebookComponent } from '../../svg/social-media/facebook.component';
-import { XComponent } from '../../svg/social-media/x.component';
-import { InstagramComponent } from '../../svg/social-media/instagram.component';
+import { SvgFacebookComponent } from '../../svg/social-media/svg-facebook.component';
+import { SvgXComponent } from '../../svg/social-media/svg-x.component';
+import { SvgInstagramComponent } from '../../svg/social-media/svg-instagram.component';
 
 @Component({
   selector: 'app-social-media',
   standalone: true,
   imports: [
-    FacebookComponent,
-    XComponent,
-    InstagramComponent,
+    SvgFacebookComponent,
+    SvgXComponent,
+    SvgInstagramComponent,
   ],
   templateUrl: './social-media.component.html',
   styleUrl: './social-media.component.scss',

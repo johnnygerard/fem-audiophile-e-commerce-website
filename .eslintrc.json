@@ -27,10 +27,7 @@
           "error",
           {
             "type": "element",
-            "prefix": [
-              "app",
-              "svg"
-            ],
+            "prefix": "app",
             "style": "kebab-case"
           }
         ],
@@ -45,7 +42,7 @@
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
-      "rules": {}
+      "rules": { }
     }
   ]
 }

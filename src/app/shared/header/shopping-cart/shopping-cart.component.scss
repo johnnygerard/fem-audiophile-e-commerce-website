@@ -47,11 +47,9 @@
 
 .empty-cart {
   @include body;
-  opacity: 0.5;
   text-decoration: underline;
 
   &:hover {
-    opacity: 1;
     color: $color-accent;
   }
 }
@@ -98,7 +96,6 @@ app-quantity-control {
 
 .total {
   @include body;
-  opacity: 0.5;
   text-transform: uppercase;
 
   &-price {
