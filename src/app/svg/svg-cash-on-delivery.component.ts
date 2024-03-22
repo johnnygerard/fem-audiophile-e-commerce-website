@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'svg-cash-on-delivery',
+  selector: 'app-svg-cash-on-delivery',
   standalone: true,
   imports: [],
   template: `
@@ -16,6 +16,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CashOnDeliveryComponent {
+export class SvgCashOnDeliveryComponent {
 
 }

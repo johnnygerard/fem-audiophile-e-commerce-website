@@ -1,9 +1,9 @@
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroupDirective, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
-import { CashOnDeliveryComponent } from '../../../svg/cash-on-delivery/cash-on-delivery.component';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
 import { OrderConfirmationComponent } from '../order-confirmation/order-confirmation.component';
+import { SvgCashOnDeliveryComponent } from '../../../svg/svg-cash-on-delivery.component';
 
 type FormGroupControl = string | [string, (ValidatorFn | ValidatorFn[])];
 
@@ -15,7 +15,7 @@ type FormGroupControl = string | [string, (ValidatorFn | ValidatorFn[])];
     NgSwitch,
     NgSwitchCase,
     ReactiveFormsModule,
-    CashOnDeliveryComponent,
+    SvgCashOnDeliveryComponent,
     OrderConfirmationComponent,
   ],
   templateUrl: './checkout-form.component.html',

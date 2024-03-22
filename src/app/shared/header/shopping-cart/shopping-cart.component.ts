@@ -4,9 +4,9 @@ import { NgFor } from '@angular/common';
 import { QuantityControlComponent } from '../../quantity-control/quantity-control.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ShoppingCartSvgComponent } from '../../../svg/shopping-cart/shopping-cart.component';
 import { AppCurrencyPipe } from '../../../app-currency.pipe';
 import { OrderService } from '../../../services/order.service';
+import { SvgShoppingCartComponent } from '../../../svg/svg-shopping-cart.component';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -16,7 +16,7 @@ import { OrderService } from '../../../services/order.service';
     NgFor,
     AppCurrencyPipe,
     QuantityControlComponent,
-    ShoppingCartSvgComponent,
+    SvgShoppingCartComponent,
   ],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',

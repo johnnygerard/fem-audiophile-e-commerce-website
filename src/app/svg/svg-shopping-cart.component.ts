@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'svg-shopping-cart',
+  selector: 'app-svg-shopping-cart',
   standalone: true,
   imports: [],
   template: `
@@ -16,6 +16,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShoppingCartSvgComponent {
+export class SvgShoppingCartComponent {
 
 }
