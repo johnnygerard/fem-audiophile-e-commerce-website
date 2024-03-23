@@ -3,7 +3,8 @@
     <li class="link-container-item" *ngFor="let category of productCategories">
       <img class="link-image" alt
           src="/assets/images/shared/desktop/category-thumbnail-{{ category }}.png">
-      <a class="link" routerLink="/{{ category }}" [attr.aria-label]="'Shop ' + category">
+      <a class="link" [routerLink]="['/product-category', category]"
+          [attr.aria-label]="'Shop ' + category">
         <span class="product-category">{{ category }}</span>
         <div class="link-label-container">
           <span class="link-label">Shop</span>

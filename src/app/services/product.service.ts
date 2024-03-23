@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../types/product.type';
-import { ProductCategory } from '../types/product-category.enum';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +22,10 @@ export class ProductService {
     throw Error(`Product #${id} not found`);
   }
 
-  getProductsByCategory(category: ProductCategory): Product[] {
-    return this.#products$.value.filter(product => product.category === category);
+  getProduct$(id: string): Observable<Product> {
+    return this.products$.pipe(
+      map(products => products.find(product => product.id === id)),
+      filter((product: Product | undefined): product is Product => product !== undefined),
+    );
   }
 }

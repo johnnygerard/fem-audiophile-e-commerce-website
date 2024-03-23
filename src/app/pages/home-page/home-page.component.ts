@@ -19,6 +19,6 @@ import { AboutComponent } from '../../shared/about/about.component';
   styleUrl: './home-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomePageComponent {
+export default class HomePageComponent {
 
 }
