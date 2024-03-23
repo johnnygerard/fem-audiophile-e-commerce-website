@@ -3,7 +3,8 @@ import { productDetailsTitleResolver } from './product-details-title.resolver';
 import { productCategoryPageGuard } from '../product-category-page.guard';
 import { productCategoryPageTitleResolver } from './product-category-page-title.resolver';
 
-export const PRODUCT_CATEGORY_PAGE_PATH = 'product-category/:category';
+export const PRODUCT_CATEGORY_PAGE_BASE_PATH = 'product-category';
+export const PRODUCT_CATEGORY_PAGE_PATH = `${PRODUCT_CATEGORY_PAGE_BASE_PATH}/:category`;
 
 export const routes: Routes = [
   {

@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener } from '@angular/core';
 import { RichNavigationComponent } from '../rich-navigation/rich-navigation.component';
 import { NgIf } from '@angular/common';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { HeroComponent } from '../../pages/home-page/hero/hero.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SvgMenuComponent } from '../../svg/svg-menu.component';
 import { SvgLogoComponent } from '../../svg/svg-logo.component';
+import { ProductCategory } from '../../types/product-category.enum';
+import { PRODUCT_CATEGORY_PAGE_BASE_PATH } from '../../app.routes';
 
 const TIMING = '300ms ease';
 
@@ -50,19 +52,10 @@ export class HeaderComponent {
   ) {
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        switch (event.url) {
-          case '/':
-            this.pageHeader = 'home';
-            break;
-          case '/headphones':
-          case '/earphones':
-          case '/speakers':
-            this.pageHeader = event.url.slice(1);
-            break;
-          default:
-            this.pageHeader = null;
-            break;
-        }
+        if (event.url === '/') this.pageHeader = 'home';
+        else if (event.url.startsWith(`/${PRODUCT_CATEGORY_PAGE_BASE_PATH}/`))
+          this.pageHeader = event.url.split('/').at(-1)!;
+        else this.pageHeader = null;
       }
 
       // Trigger change detection
