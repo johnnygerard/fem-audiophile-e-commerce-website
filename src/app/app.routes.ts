@@ -1,9 +1,7 @@
 import { Routes } from '@angular/router';
 import { productDetailsTitleResolver } from './product-details-title.resolver';
-
-const loadProductCategoryPage = () => import(
-  './pages/product-category-page/product-category-page.component'
-);
+import { productCategoryPageGuard } from '../product-category-page.guard';
+import { productCategoryPageTitleResolver } from './product-category-page-title.resolver';
 
 export const routes: Routes = [
   {
@@ -11,21 +9,6 @@ export const routes: Routes = [
     pathMatch: 'full',
     title: 'Home',
     loadComponent: () => import('./pages/home-page/home-page.component'),
-  },
-  {
-    path: 'headphones',
-    title: 'Headphones',
-    loadComponent: loadProductCategoryPage,
-  },
-  {
-    path: 'speakers',
-    title: 'Speakers',
-    loadComponent: loadProductCategoryPage,
-  },
-  {
-    path: 'earphones',
-    title: 'Earphones',
-    loadComponent: loadProductCategoryPage,
   },
   {
     path: 'product/:id',
@@ -36,6 +19,12 @@ export const routes: Routes = [
     path: 'checkout',
     title: 'Checkout',
     loadComponent: () => import('./pages/checkout-page/checkout-page.component'),
+  },
+  {
+    path: ':category',
+    title: productCategoryPageTitleResolver,
+    loadComponent: () => import('./pages/product-category-page/product-category-page.component'),
+    canActivate: [productCategoryPageGuard],
   },
   {
     path: '**',
