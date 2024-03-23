@@ -2,7 +2,7 @@
   <ul class="link-container">
     <li><a class="link" routerLink="/">Home</a></li>
     <li *ngFor="let category of productCategories">
-      <a class="link" routerLink="/{{ category }}">
+      <a class="link" [routerLink]="['/product-category', category]">
         {{ category }}
       </a>
     </li>
