@@ -29,7 +29,7 @@ import { AboutComponent } from '../../shared/about/about.component';
   styleUrl: './product-details-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailsPageComponent implements OnChanges {
+export default class ProductDetailsPageComponent implements OnChanges {
   product$ = of(null as Product | null);
   id = input.required<string>();
 

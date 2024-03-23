@@ -22,7 +22,7 @@ import { AboutComponent } from '../../shared/about/about.component';
   styleUrl: './product-category-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductCategoryPageComponent {
+export default class ProductCategoryPageComponent {
   readonly products$: Observable<Product[]>;
 
   constructor(productService: ProductService, route: ActivatedRoute) {

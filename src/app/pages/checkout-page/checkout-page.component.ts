@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
   styleUrl: './checkout-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CheckoutPageComponent {
+export default class CheckoutPageComponent {
   constructor(private _location: Location) { }
 
   goBack(): void {
