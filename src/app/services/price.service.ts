@@ -9,8 +9,6 @@ export class PriceService {
   readonly VAT_RATE = 0.2;
   readonly SHIPPING_COST = 50;
 
-  constructor() { }
-
   getPriceBreakdown(items: readonly ShoppingCartItem[]): PriceBreakdown {
     const subtotal = items.reduce((acc, item) => acc + item.totalPrice, 0);
     const shipping = this.SHIPPING_COST;

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../types/product.type';
-import { ProductCategory } from '../types/product-category.enum';
 import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 
 @Injectable({
@@ -28,9 +27,5 @@ export class ProductService {
       map(products => products.find(product => product.id === id)),
       filter((product: Product | undefined): product is Product => product !== undefined),
     );
-  }
-
-  getProductsByCategory(category: ProductCategory): Product[] {
-    return this.#products$.value.filter(product => product.category === category);
   }
 }
