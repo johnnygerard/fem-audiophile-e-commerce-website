@@ -5,6 +5,7 @@ import { ShoppingCartService } from '../../../services/shopping-cart.service';
 import { OrderConfirmationComponent } from '../order-confirmation/order-confirmation.component';
 import { SvgCashOnDeliveryComponent } from '../../../svg/svg-cash-on-delivery.component';
 import { CheckoutFormControls } from './checkout-form-controls.type';
+import { OrderService } from '../../../services/order.service';
 
 @Component({
   selector: 'app-checkout-form',
@@ -44,10 +45,12 @@ export class CheckoutFormComponent {
   constructor(
     private readonly _formBuilder: FormBuilder,
     private readonly _cart: ShoppingCartService,
+    private readonly _orderService: OrderService,
   ) { }
 
   onSubmit(): void {
     if (this.checkoutForm.invalid) return;
+    this._orderService.createOrder();
     this._cart.empty();
 
     // Open the order confirmation dialog

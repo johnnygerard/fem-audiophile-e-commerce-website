@@ -1,6 +1,8 @@
+import { Signal } from "@angular/core";
+
 export type PriceBreakdown = {
-  readonly subtotal: number;
-  readonly shipping: number;
-  readonly vat: number;
-  readonly total: number;
+  readonly subtotal: Signal<number>;
+  readonly shipping: Signal<number>;
+  readonly vat: Signal<number>;
+  readonly total: Signal<number>;
 };

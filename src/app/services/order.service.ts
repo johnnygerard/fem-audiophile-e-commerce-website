@@ -7,6 +7,7 @@ import { ShoppingCartItem } from '../types/shopping-cart-item.class';
 })
 export class OrderService {
   #items: ShoppingCartItem[] = [];
+  #total = 0;
 
   constructor(
     private readonly _cart: ShoppingCartService,
@@ -16,7 +17,12 @@ export class OrderService {
     return this.#items;
   }
 
+  get total(): number {
+    return this.#total;
+  }
+
   createOrder(): void {
     this.#items = this._cart.items().map(item => item.clone());
+    this.#total = this.#items.reduce((acc, item) => acc + item.totalPrice, 0);
   }
 }

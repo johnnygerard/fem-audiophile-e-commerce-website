@@ -3,6 +3,7 @@ import { NgFor } from '@angular/common';
 import { AppCurrencyPipe } from '../../../app-currency.pipe';
 import { OrderService } from '../../../services/order.service';
 import { PriceService } from '../../../services/price.service';
+import { ShoppingCartService } from '../../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-checkout-summary',
@@ -16,7 +17,7 @@ import { PriceService } from '../../../services/price.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckoutSummaryComponent {
-  readonly items = this._order.items;
+  readonly items = this._cart.items;
   readonly priceBreakdown = this._price.getPriceBreakdown(this.items);
   readonly costEntries = [
     { label: 'Total', value: this.priceBreakdown.subtotal },
@@ -25,7 +26,7 @@ export class CheckoutSummaryComponent {
   ];
 
   constructor(
-    private readonly _order: OrderService,
+    private readonly _cart: ShoppingCartService,
     private readonly _price: PriceService,
   ) { }
 }

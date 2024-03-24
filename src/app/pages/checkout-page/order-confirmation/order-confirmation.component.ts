@@ -4,7 +4,6 @@ import { Router, RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { AppCurrencyPipe } from '../../../app-currency.pipe';
 import { OrderService } from '../../../services/order.service';
-import { PriceService } from '../../../services/price.service';
 
 @Component({
   selector: 'app-order-confirmation',
@@ -21,14 +20,13 @@ import { PriceService } from '../../../services/price.service';
 })
 export class OrderConfirmationComponent implements OnInit {
   readonly items = this._order.items;
-  readonly total = this._price.getPriceBreakdown(this.items).total;
+  readonly total = this._order.total;
   isListExpanded = false;
   dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
 
   constructor(
     private readonly _router: Router,
     private readonly _order: OrderService,
-    private readonly _price: PriceService,
   ) { }
 
   ngOnInit(): void {
