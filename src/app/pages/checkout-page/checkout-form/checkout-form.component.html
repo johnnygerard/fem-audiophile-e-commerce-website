@@ -66,6 +66,8 @@
           <span>e-Money</span>
           <input class="radio-input" type="radio" formControlName="paymentMethod" [value]="E_MONEY"
               (change)="addEMoneyControls()" required>
+          <span class="error"
+              *ngIf="isRequired(checkoutForm.controls.paymentMethod)">Required</span>
         </label>
         <label class="radio-input-label"
             [class.checked]="checkoutForm.controls.paymentMethod.value === CASH_ON_DELIVERY">
@@ -73,6 +75,8 @@
           <span>Cash on Delivery</span>
           <input class="radio-input" type="radio" formControlName="paymentMethod"
               [value]="CASH_ON_DELIVERY" (change)="removeEMoneyControls()" required>
+          <span class="error"
+              *ngIf="isRequired(checkoutForm.controls.paymentMethod)">Required</span>
         </label>
       </div>
     </div>

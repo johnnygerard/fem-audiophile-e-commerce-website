@@ -4,6 +4,7 @@
 $text-field-vertical-gap: 24px;
 $text-field-horizontal-gap: 16px;
 $form-control-border-color: $color-accent;
+$form-control-border-error: 2px solid $color-error;
 
 @mixin form-control {
   height: 56px;
@@ -123,7 +124,18 @@ $form-control-border-color: $color-accent;
   padding-left: 52px;
   cursor: pointer;
 
-  &:is(:hover, :focus-within, .checked) {
+  .error {
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:has(.error) {
+    color: $color-error;
+    border: $form-control-border-error;
+  }
+
+  &:is(:hover, :focus-within, .checked):not(:has(.error)) {
     border-color: $form-control-border-color;
   }
 
@@ -188,7 +200,7 @@ $form-control-border-color: $color-accent;
       color: $color-error;
 
       .text-field {
-        border: 2px solid $color-error;
+        border: $form-control-border-error;
       }
     }
   }
