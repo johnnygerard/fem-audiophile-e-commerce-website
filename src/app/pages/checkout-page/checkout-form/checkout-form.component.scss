@@ -153,18 +153,10 @@ $form-control-border-color: $color-accent;
   padding: 4px;
 }
 
-.text-field-label {
-  position: relative;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 8px;
-}
-
 .error {
   position: absolute;
   top: 0;
   right: 0;
-  color: $color-error;
   font-weight: 400;
 }
 
@@ -186,25 +178,28 @@ $form-control-border-color: $color-accent;
   letter-spacing: -0.25px;
   caret-color: $color-accent;
 
+  &-label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &:has(.error) {
+      color: $color-error;
+
+      .text-field {
+        border: 2px solid $color-error;
+      }
+    }
+  }
+
   &::placeholder {
     color: color.change($color-black, $alpha: 0.4);
   }
 
-  // START ORDER SENSITIVE REGION
   &:is(:hover, :focus-visible) {
     border-color: $form-control-border-color;
   }
-
-  &.ng-invalid.ng-touched,
-  .form.ng-submitted &.ng-invalid {
-    border: 2px solid $color-error;
-
-    // TODO: Refactor to decouple from DOM order
-    & + .text-field-label-value {
-      color: $color-error;
-    }
-  }
-  // END ORDER SENSITIVE REGION
 }
 
 .e-money-fields {

@@ -5,52 +5,52 @@
     <legend class="subheading">Billing Details</legend>
     <div class="text-field-pair">
       <label class="text-field-label">
+        <span class="text-field-label-value">Name</span>
         <input class="text-field" formControlName="name" placeholder="Alexei Ward" required
             autocomplete="name">
-        <span class="text-field-label-value">Name</span>
         <span class="error" *ngIf="isRequired(checkoutForm.controls.name)">Required</span>
       </label>
       <label class="text-field-label">
+        <span class="text-field-label-value">Email Address</span>
         <input class="text-field" type="email" formControlName="email" placeholder="alexei@mail.com"
             required autocomplete="email">
-        <span class="text-field-label-value">Email Address</span>
         <span class="error" *ngIf="isRequired(checkoutForm.controls.email)">Required</span>
         <span class="error" *ngIf="isEmailInvalid">Wrong format</span>
       </label>
     </div>
     <label class="text-field-label half-width phone-row">
+      <span class="text-field-label-value">Phone Number</span>
       <input class="text-field" type="tel" formControlName="phone" placeholder="+1 202-555-0136"
           autocomplete="tel">
-      <span class="text-field-label-value">Phone Number</span>
       <span class="error" *ngIf="isRequired(checkoutForm.controls.phone)">Required</span>
     </label>
   </fieldset>
   <fieldset class="shipping-info">
     <legend class="subheading">Shipping Info</legend>
     <label class="text-field-label">
+      <span class="text-field-label-value">Address</span>
       <input class="text-field" formControlName="address" placeholder="1137 Williams Avenue"
           required autocomplete="address-line1">
-      <span class="text-field-label-value">Address</span>
       <span class="error" *ngIf="isRequired(checkoutForm.controls.address)">Required</span>
     </label>
     <div class="text-field-pair zip-city-row">
       <label class="text-field-label">
+        <span class="text-field-label-value">ZIP Code</span>
         <input class="text-field" formControlName="zip" placeholder="10001" required
             autocomplete="postal-code">
-        <span class="text-field-label-value">ZIP Code</span>
         <span class="error" *ngIf="isRequired(checkoutForm.controls.zip)">Required</span>
       </label>
       <label class="text-field-label">
+        <span class="text-field-label-value">City</span>
         <input class="text-field" formControlName="city" placeholder="New York" required
             autocomplete="address-level2">
-        <span class="text-field-label-value">City</span>
         <span class="error" *ngIf="isRequired(checkoutForm.controls.city)">Required</span>
       </label>
     </div>
     <label class="text-field-label half-width">
+      <span class="text-field-label-value">Country</span>
       <input class="text-field" formControlName="country" placeholder="United States" required
           autocomplete="country-name" spellcheck>
-      <span class="text-field-label-value">Country</span>
       <span class="error" *ngIf="isRequired(checkoutForm.controls.country)">Required</span>
     </label>
   </fieldset>
@@ -79,16 +79,16 @@
     <ng-container [ngSwitch]="checkoutForm.controls.paymentMethod.value">
       <div class="text-field-pair e-money-fields" *ngSwitchCase="E_MONEY">
         <label class="text-field-label">
+          <span class="text-field-label-value">e-Money Number</span>
           <input class="text-field" formControlName="eMoneyNumber" placeholder="238521993" required
               autocomplete="cc-number">
-          <span class="text-field-label-value">e-Money Number</span>
           <span class="error"
               *ngIf="isRequired(checkoutForm.controls.eMoneyNumber!)">Required</span>
         </label>
         <label class="text-field-label">
+          <span class="text-field-label-value">e-Money PIN</span>
           <input class="text-field" type="password" formControlName="eMoneyPin" placeholder="6891"
               [pattern]="PIN_REGEX" required autocomplete="cc-csc">
-          <span class="text-field-label-value">e-Money PIN</span>
           <span class="error" *ngIf="isRequired(checkoutForm.controls.eMoneyPin!)">Required</span>
           <span class="error" *ngIf="isPinInvalid">Wrong format</span>
         </label>
