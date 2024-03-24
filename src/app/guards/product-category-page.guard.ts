@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { ProductCategory } from './app/types/product-category.enum';
+import { ProductCategory } from '../types/product-category.enum';
 
 const productCategories = Object.values(ProductCategory) as string[];
 
