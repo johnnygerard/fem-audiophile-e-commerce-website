@@ -1,4 +1,4 @@
-import { ModelSignal } from "@angular/core";
+import { ModelSignal, model } from "@angular/core";
 
 export class ShoppingCartItem {
   readonly imageSrc = `/assets/images/cart/${this.id}.jpg`;
@@ -9,6 +9,15 @@ export class ShoppingCartItem {
     readonly shortName: string,
     readonly price: number,
   ) { }
+
+  clone(): ShoppingCartItem {
+    return new ShoppingCartItem(
+      this.id,
+      model(this.quantity()),
+      this.shortName,
+      this.price,
+    );
+  }
 
   get totalPrice(): number {
     return this.price * this.quantity();

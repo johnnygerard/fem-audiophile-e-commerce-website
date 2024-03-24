@@ -22,6 +22,6 @@
       <span class="total">Total</span>
       <span class="total-price">{{ totalPrice() | appCurrency }}</span>
     </p>
-    <button class="checkout g-button-accent">Checkout</button>
+    <button class="checkout g-button-accent" [disabled]="isCartEmpty">Checkout</button>
   </form>
 </dialog>

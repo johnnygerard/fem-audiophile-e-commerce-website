@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { ProductService } from './services/product.service';
+import { ProductService } from '../services/product.service';
 import { map } from 'rxjs';
 
 export const productDetailsTitleResolver: ResolveFn<string> = (route, _state) => {

@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-import { productDetailsTitleResolver } from './product-details-title.resolver';
-import { productCategoryPageGuard } from '../product-category-page.guard';
-import { productCategoryPageTitleResolver } from './product-category-page-title.resolver';
+import { productDetailsTitleResolver } from './resolvers/product-details-title.resolver';
+import { productCategoryPageGuard } from './guards/product-category-page.guard';
+import { productCategoryPageTitleResolver } from './resolvers/product-category-page-title.resolver';
+import { checkoutPageGuard } from './guards/checkout-page.guard';
 
 export const PRODUCT_CATEGORY_PAGE_BASE_PATH = 'product-category';
 export const PRODUCT_CATEGORY_PAGE_PATH = `${PRODUCT_CATEGORY_PAGE_BASE_PATH}/:category`;
@@ -28,6 +29,7 @@ export const routes: Routes = [
     path: 'checkout',
     title: 'Checkout',
     loadComponent: () => import('./pages/checkout-page/checkout-page.component'),
+    canActivate: [checkoutPageGuard],
   },
   {
     path: '**',

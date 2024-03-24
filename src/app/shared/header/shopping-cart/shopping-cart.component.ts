@@ -5,7 +5,6 @@ import { QuantityControlComponent } from '../../quantity-control/quantity-contro
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppCurrencyPipe } from '../../../app-currency.pipe';
-import { OrderService } from '../../../services/order.service';
 import { SvgShoppingCartComponent } from '../../../svg/svg-shopping-cart.component';
 
 @Component({
@@ -29,16 +28,18 @@ export class ShoppingCartComponent {
 
   constructor(
     private readonly _cart: ShoppingCartService,
-    private readonly _order: OrderService,
     private readonly _router: Router,
   ) { }
 
+  get isCartEmpty(): boolean {
+    return this._cart.isEmpty;
+  }
+
   emptyCart(): void {
-    this._cart.emptyCart();
+    this._cart.empty();
   }
 
   checkOut(): void {
-    this._order.createOrder();
     this._router.navigateByUrl('/checkout');
   }
 }

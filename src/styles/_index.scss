@@ -22,6 +22,11 @@ $short-color-transition: color $short-transition;
   height: 48px;
   cursor: pointer;
 
+  &:disabled {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+  }
+
   // Typography
   text-transform: uppercase;
   letter-spacing: 1px;

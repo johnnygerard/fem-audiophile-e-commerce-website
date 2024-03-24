@@ -10,6 +10,7 @@ import { ProductInfoComponent } from './product-info/product-info.component';
 import { RouterLink } from '@angular/router';
 import { RichNavigationComponent } from '../../shared/rich-navigation/rich-navigation.component';
 import { AboutComponent } from '../../shared/about/about.component';
+import { GoBackButtonComponent } from '../../shared/go-back-button/go-back-button.component';
 
 @Component({
   selector: 'app-product-details',
@@ -18,6 +19,7 @@ import { AboutComponent } from '../../shared/about/about.component';
     NgIf,
     RouterLink,
     AsyncPipe,
+    GoBackButtonComponent,
     ProductPreviewPriceComponent,
     ProductInfoComponent,
     GalleryComponent,

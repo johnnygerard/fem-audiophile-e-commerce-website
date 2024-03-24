@@ -1,5 +1,5 @@
 <ng-container *ngIf="product$ | async as product">
-  <a class="g-back-nav" [routerLink]="'/' + product.category">Go Back</a>
+  <app-go-back-button class="back-nav" />
   <app-product-preview-price [product]="product" />
   <app-product-info [features]="product.features" [includes]="product.includes" />
   <app-gallery [gallery]="product.gallery" />
