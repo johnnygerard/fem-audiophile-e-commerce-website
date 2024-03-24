@@ -66,7 +66,7 @@ export class ShoppingCartService {
     });
   }
 
-  emptyCart(): void {
+  empty(): void {
     this.#items.set([]);
   }
 

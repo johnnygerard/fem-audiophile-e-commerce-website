@@ -34,7 +34,7 @@ export class ShoppingCartComponent {
   ) { }
 
   emptyCart(): void {
-    this._cart.emptyCart();
+    this._cart.empty();
   }
 
   checkOut(): void {
