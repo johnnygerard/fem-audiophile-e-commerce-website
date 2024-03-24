@@ -33,6 +33,10 @@ export class ShoppingCartComponent {
     private readonly _router: Router,
   ) { }
 
+  get isCartEmpty(): boolean {
+    return this._cart.isEmpty;
+  }
+
   emptyCart(): void {
     this._cart.empty();
   }
