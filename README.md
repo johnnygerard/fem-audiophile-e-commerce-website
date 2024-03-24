@@ -19,7 +19,7 @@ This is my solution to the [Audiophile e-commerce website challenge](https://www
 - Title strategy and resolvers
 - Standalone components
 - Bash automation (see [PR #1](../../pull/1))
-- [GitHub Actions](../../tree/main/.github/workflows):
+- [GitHub Actions](.github/workflows):
   - Vercel deployments
   - CodeQL analysis
 
