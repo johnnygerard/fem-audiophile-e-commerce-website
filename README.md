@@ -2,7 +2,7 @@
 
 This is my solution to the [Audiophile e-commerce website challenge](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx) from [Frontend Mentor](https://www.frontendmentor.io/).
 
-[![project status](https://img.shields.io/badge/status-work%20in%20progress-red?style=for-the-badge)](https://fem-audiophile-e-commerce-website-jgerard.vercel.app)
+[![project status](https://img.shields.io/badge/status-solution%20published-success?style=for-the-badge)](https://fem-audiophile-e-commerce-website-jgerard.vercel.app)
 
 ## Tech Stack
 
@@ -11,6 +11,12 @@ This is my solution to the [Audiophile e-commerce website challenge](https://www
 
 ## Main Features
 
+- Angular signals
+- Angular animations
+- [Custom form control](src/app/shared/quantity-control/quantity-control.component.ts)
+- Lazy loaded components
+- Route guards
+- Title strategy and resolvers
 - Standalone components
 - Bash automation (see [PR #1](../../pull/1))
 - [GitHub Actions](../../tree/main/.github/workflows):
