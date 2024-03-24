@@ -45,6 +45,10 @@ export class ShoppingCartService {
     }
   }
 
+  get isEmpty(): boolean {
+    return this.#items().length === 0;
+  }
+
   addItem(id: string, quantity: number): void {
     this.#items.update(items => {
       const item = items.find(item => item.id === id);
