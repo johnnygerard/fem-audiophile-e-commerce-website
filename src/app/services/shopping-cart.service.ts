@@ -35,10 +35,14 @@ export class ShoppingCartService {
       // Keep local storage synchronized with cart
       effect(() => window.localStorage.setItem(
         this.STORAGE_KEY,
-        JSON.stringify(this.#items().map(item => ({
-          id: item.id,
-          quantity: item.quantity(),
-        })))
+        JSON.stringify(this.#items().map(item => {
+          const itemJSON: ShoppingCartItemJSON = {
+            id: item.id,
+            quantity: item.quantity(),
+          };
+
+          return itemJSON;
+        }))
       ));
     } else {
       console.warn('Local storage not supported');
