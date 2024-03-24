@@ -1,11 +1,11 @@
 <h2 class="heading">Summary</h2>
 <ul class="item-container">
-  <li class="item" *ngFor="let item of items; index as i">
+  <li class="item" *ngFor="let item of items">
     <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
     <div class="item-info">
       <p class="item-name-qty-container">
         <span class="item-name">{{ item.shortName }}</span>
-        <span class="item-quantity">x{{ itemQuantities[i] }}</span>
+        <span class="item-quantity">x{{ item.quantity() }}</span>
       </p>
       <span class="item-price">{{ item.price | appCurrency }}</span>
     </div>

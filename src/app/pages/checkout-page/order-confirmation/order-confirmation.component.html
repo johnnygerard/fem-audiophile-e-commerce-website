@@ -8,12 +8,12 @@
   <div class="item-list-outer-container">
     <div class="item-list-container">
       <ul class="item-list">
-        <li class="item" *ngFor="let item of (isListExpanded ? items : [items[0]]); index as i">
+        <li class="item" *ngFor="let item of (isListExpanded ? items : [items[0]])">
           <img class="item-image" [src]="item.imageSrc" alt="" width="64" height="64">
           <div class="item-info">
             <p class="item-name-qty-container">
               <span class="item-name">{{ item.shortName }}</span>
-              <span class="item-quantity">x{{ itemQuantities[i] }}</span>
+              <span class="item-quantity">x{{ item.quantity() }}</span>
             </p>
             <span class="item-price">{{ item.price | appCurrency }}</span>
           </div>

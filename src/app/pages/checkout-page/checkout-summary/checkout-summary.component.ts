@@ -17,7 +17,6 @@ import { PriceService } from '../../../services/price.service';
 })
 export class CheckoutSummaryComponent {
   readonly items = this._order.items;
-  readonly itemQuantities = this._order.itemQuantities;
   readonly priceBreakdown = this._price.getPriceBreakdown(this.items);
   readonly costEntries = [
     { label: 'Total', value: this.priceBreakdown.subtotal },

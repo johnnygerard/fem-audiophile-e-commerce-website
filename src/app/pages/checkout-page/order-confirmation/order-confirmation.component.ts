@@ -21,7 +21,6 @@ import { PriceService } from '../../../services/price.service';
 })
 export class OrderConfirmationComponent implements OnInit {
   readonly items = this._order.items;
-  readonly itemQuantities = this._order.itemQuantities;
   readonly total = this._price.getPriceBreakdown(this.items).total;
   isListExpanded = false;
   dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
