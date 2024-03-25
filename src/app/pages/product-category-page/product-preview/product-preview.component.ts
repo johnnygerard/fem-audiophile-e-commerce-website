@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { SourceMedia } from '../../../types/source-media.enum';
 import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-product-preview',
   standalone: true,
   imports: [
+    NgIf,
     RouterLink,
   ],
   templateUrl: './product-preview.component.html',

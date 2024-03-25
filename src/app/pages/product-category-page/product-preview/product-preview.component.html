@@ -5,7 +5,7 @@
 </picture>
 <div class="text-container">
   <hgroup>
-    <p class="overline">New product</p>
+    <p class="overline" *ngIf="isNew()">New product</p>
     <h2 class="heading">{{ name() }}</h2>
   </hgroup>
   <p class="text-body">{{ description() }}</p>
