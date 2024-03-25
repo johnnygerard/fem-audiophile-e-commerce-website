@@ -26,7 +26,7 @@
 
 .overline {
   @include overline;
-  color: color.change($color-black, $alpha: 0.5);
+  color: color.change($color-white, $alpha: 0.5);
 }
 
 .heading {
