@@ -26,7 +26,6 @@
 
 .overline {
   @include overline;
-  color: $color-accent;
   margin-bottom: 16px;
 
   @include mobile {
