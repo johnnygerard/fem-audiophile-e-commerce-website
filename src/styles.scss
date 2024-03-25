@@ -25,7 +25,6 @@ body {
 .g-button-normal {
   @include button;
   border: 1px solid $color-black;
-  background-color: $color-white;
   color: $color-black;
 
   transition: {
