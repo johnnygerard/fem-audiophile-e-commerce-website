@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
 import { ProductService } from '../../services/product.service';
 import { Observable, map } from 'rxjs';
@@ -23,6 +23,7 @@ import { AboutComponent } from '../../shared/about/about.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class ProductCategoryPageComponent {
+  @HostBinding('attr.role') role = 'main';
   readonly products$: Observable<Product[]>;
 
   constructor(productService: ProductService, route: ActivatedRoute) {
