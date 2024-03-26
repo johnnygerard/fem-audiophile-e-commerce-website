@@ -130,12 +130,15 @@ $form-control-border-error: 2px solid $color-error;
     transform: translateY(-50%);
   }
 
-  &:has(.error) {
+  // The child combinator (>) is used instead of the implicit descendant combinator ( ).
+  // This is done to avoid a CSS parsing error from the W3C validator.
+  // GitHub issue: https://github.com/validator/validator/issues/1678
+  &:has(> .error) {
     color: $color-error;
     border: $form-control-border-error;
   }
 
-  &:is(:hover, :focus-within, .checked):not(:has(.error)) {
+  &:is(:hover, :focus-within, .checked):not(:has(> .error)) {
     border-color: $form-control-border-color;
   }
 
@@ -196,7 +199,7 @@ $form-control-border-error: 2px solid $color-error;
     flex-direction: column;
     gap: 8px;
 
-    &:has(.error) {
+    &:has(> .error) {
       color: $color-error;
 
       .text-field {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { GoBackButtonComponent } from '../../shared/go-back-button/go-back-button.component';
 import { CheckoutFormComponent } from './checkout-form/checkout-form.component';
 import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.component';
@@ -15,4 +15,6 @@ import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.co
   styleUrl: './checkout-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class CheckoutPageComponent { }
+export default class CheckoutPageComponent {
+  @HostBinding('attr.role') role = 'main';
+}

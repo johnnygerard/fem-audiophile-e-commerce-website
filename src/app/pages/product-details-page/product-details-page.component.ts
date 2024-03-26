@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnChanges, SimpleChanges, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnChanges, SimpleChanges, input } from '@angular/core';
 import { ProductRecommendationsComponent } from './product-recommendations/product-recommendations.component';
 import { map, of } from 'rxjs';
 import { Product } from '../../types/product.type';
@@ -32,6 +32,7 @@ import { GoBackButtonComponent } from '../../shared/go-back-button/go-back-butto
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class ProductDetailsPageComponent implements OnChanges {
+  @HostBinding('attr.role') role = 'main';
   product$ = of(null as Product | null);
   id = input.required<string>();
 

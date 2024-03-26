@@ -1,4 +1,4 @@
-<nav aria-label="Footer">
+<nav [attr.aria-label]="isFooter() ? 'Footer' : 'Header'">
   <ul class="link-container">
     <li><a class="link" routerLink="/">Home</a></li>
     <li *ngFor="let category of productCategories">
