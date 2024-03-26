@@ -5,7 +5,7 @@
   </button>
   <a class="logo-container" [routerLink]="isDesktop ? null : '/'"
       [attr.aria-label]="isDesktop ? null : 'Home'" [attr.role]="isDesktop ? 'none' : 'link'">
-    <app-svg-logo />
+    <app-svg-logo [attr.aria-hidden]="!isDesktop" />
   </a>
   <app-navigation class="navigation" *ngIf="isDesktop" />
   <app-shopping-cart />
