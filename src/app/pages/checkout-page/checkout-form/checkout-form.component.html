@@ -62,7 +62,7 @@
       <div class="radio-group half-width">
         <label class="radio-input-label"
             [class.checked]="checkoutForm.controls.paymentMethod.value === E_MONEY">
-          <div class="radio-button"></div>
+          <span class="radio-button"></span>
           <span>e-Money</span>
           <input class="radio-input" type="radio" formControlName="paymentMethod" [value]="E_MONEY"
               (change)="addEMoneyControls()" required>
@@ -71,7 +71,7 @@
         </label>
         <label class="radio-input-label"
             [class.checked]="checkoutForm.controls.paymentMethod.value === CASH_ON_DELIVERY">
-          <div class="radio-button"></div>
+          <span class="radio-button"></span>
           <span>Cash on Delivery</span>
           <input class="radio-input" type="radio" formControlName="paymentMethod"
               [value]="CASH_ON_DELIVERY" (change)="removeEMoneyControls()" required>
