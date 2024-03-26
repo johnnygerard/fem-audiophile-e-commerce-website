@@ -26,6 +26,10 @@
   margin: 32px 0 24px;
   @include h3;
 
+  &-line {
+    display: block;
+  }
+
   @include mobile {
     margin: 24px 0 16px;
 

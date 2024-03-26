@@ -79,6 +79,10 @@ $picture-bottom-offset: 14px;
 .heading {
   @include h1;
 
+  &-line {
+    display: block;
+  }
+
   @include mobile {
     margin-top: 32px;
 
