@@ -4,7 +4,7 @@
     <app-svg-menu />
   </button>
   <a class="logo-container" [routerLink]="isDesktop ? null : '/'"
-      [attr.aria-label]="isDesktop ? null : 'Home'" [attr.role]="isDesktop ? 'none' : 'link'">
+      [attr.aria-label]="isDesktop ? null : 'Home'" [attr.role]="isDesktop ? 'none' : null">
     <app-svg-logo [attr.aria-hidden]="!isDesktop" />
   </a>
   <app-navigation class="navigation" *ngIf="isDesktop" />
