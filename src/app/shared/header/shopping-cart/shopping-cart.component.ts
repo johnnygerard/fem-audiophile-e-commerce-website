@@ -6,8 +6,34 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppCurrencyPipe } from '../../../app-currency.pipe';
 import { SvgShoppingCartComponent } from '../../../svg/svg-shopping-cart.component';
+import { trigger, transition, style, animate } from '@angular/animations';
+
+const ENTER_TIMING = '200ms ease-in';
+const LEAVE_TIMING = '200ms ease-out';
+const OPACITY = 0;
+const SCALE = 0.8;
 
 @Component({
+  animations: [
+    trigger('dialog', [
+      transition(':enter', [
+        style({ scale: SCALE, opacity: OPACITY }),
+        animate(ENTER_TIMING, style({ scale: 1, opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate(LEAVE_TIMING, style({ scale: SCALE, opacity: OPACITY }))
+      ]),
+    ]),
+    trigger('backdrop', [
+      transition(':enter', [
+        style({ opacity: OPACITY }),
+        animate(ENTER_TIMING, style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate(LEAVE_TIMING, style({ opacity: OPACITY }))
+      ]),
+    ]),
+  ],
   selector: 'app-shopping-cart',
   standalone: true,
   imports: [
