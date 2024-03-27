@@ -7,11 +7,15 @@
 
 .backdrop {
   position: fixed;
-  top: 0;
+  top: $header-height;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: color.change($color-black, $alpha: 0.4);
+
+  @include desktop {
+    top: $header-desktop-height;
+  }
 }
 
 .dialog {

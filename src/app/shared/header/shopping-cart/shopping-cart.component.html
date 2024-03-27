@@ -1,4 +1,5 @@
-<button type="button" (click)="isDialogOpen = true" title="Open shopping cart">
+<button type="button" [title]="(isDialogOpen ? 'Close' : 'Open') + ' shopping cart'"
+    (click)="isDialogOpen = !isDialogOpen">
   <app-svg-shopping-cart />
 </button>
 
