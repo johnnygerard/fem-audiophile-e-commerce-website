@@ -6,9 +6,9 @@
 <ng-container *ngIf="isDialogOpen">
   <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
   <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
-  <div class="backdrop" (click)="isDialogOpen = false"></div>
+  <div class="backdrop" (click)="isDialogOpen = false" @backdrop></div>
 
-  <dialog class="dialog" open>
+  <dialog class="dialog" open @dialog>
     <div class="header">
       <h2 class="heading">Cart ({{ size() }})</h2>
       <button class="empty-cart" type="button" (click)="emptyCart()">Remove all</button>
