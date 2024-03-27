@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { QuantityControlComponent } from '../../quantity-control/quantity-control.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { SvgShoppingCartComponent } from '../../../svg/svg-shopping-cart.compone
   standalone: true,
   imports: [
     FormsModule,
+    NgIf,
     NgFor,
     AppCurrencyPipe,
     QuantityControlComponent,
@@ -22,6 +23,7 @@ import { SvgShoppingCartComponent } from '../../../svg/svg-shopping-cart.compone
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShoppingCartComponent {
+  isDialogOpen = false;
   readonly items = this._cart.items;
   readonly size = this._cart.size;
   readonly totalPrice = this._cart.totalPrice;
@@ -40,6 +42,7 @@ export class ShoppingCartComponent {
   }
 
   checkOut(): void {
+    this.isDialogOpen = false;
     this._router.navigateByUrl('/checkout');
   }
 }
