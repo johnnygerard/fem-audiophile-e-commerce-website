@@ -1,9 +1,13 @@
-<button type="button" (click)="shoppingCartDialog.showModal()" title="Open shopping cart">
+<button type="button" (click)="isDialogOpen = true" title="Open shopping cart">
   <app-svg-shopping-cart />
 </button>
 
-<dialog id="shoppingCartDialog" class="dialog" #shoppingCartDialog>
-  <form class="dialog-form" method="dialog" (submit)="checkOut()">
+<ng-container *ngIf="isDialogOpen">
+  <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+  <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+  <div class="backdrop" (click)="isDialogOpen = false"></div>
+
+  <dialog class="dialog" open>
     <div class="header">
       <h2 class="heading">Cart ({{ size() }})</h2>
       <button class="empty-cart" type="button" (click)="emptyCart()">Remove all</button>
@@ -22,6 +26,7 @@
       <span class="total">Total</span>
       <span class="total-price">{{ totalPrice() | appCurrency }}</span>
     </p>
-    <button class="checkout g-button-accent" [disabled]="isCartEmpty">Checkout</button>
-  </form>
-</dialog>
+    <button class="checkout g-button-accent" type="button" (click)="checkOut()"
+        [disabled]="isCartEmpty">Checkout</button>
+  </dialog>
+</ng-container>

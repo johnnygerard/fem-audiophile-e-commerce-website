@@ -5,7 +5,16 @@
   display: block;
 }
 
-.dialog-form {
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: color.change($color-black, $alpha: 0.4);
+}
+
+.dialog {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -15,11 +24,6 @@
 
   @include mobile {
     width: 336px;
-  }
-}
-
-.dialog {
-  @include mobile {
     margin: calc($header-height + 24px) auto 0;
   }
 
@@ -30,10 +34,6 @@
   @include desktop {
     margin: calc($header-desktop-height + 32px) $desktop-horizontal-page-padding
       0 auto;
-  }
-
-  &::backdrop {
-    background-color: color.change($color-black, $alpha: 0.4);
   }
 }
 
