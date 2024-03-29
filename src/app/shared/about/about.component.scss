@@ -17,13 +17,10 @@
   }
 }
 
-.picture {
+img {
   background-color: $color-light-gray;
   border-radius: 8px;
-
-  @include mobile {
-    height: auto;
-  }
+  height: auto;
 }
 
 .text-container {
