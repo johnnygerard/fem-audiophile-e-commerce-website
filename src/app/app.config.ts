@@ -6,7 +6,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { TitleStrategyService } from './services/title-strategy.service';
 import { RouteReuseStrategyService } from './services/route-reuse-strategy.service';
-import { TitleCasePipe } from '@angular/common';
+import { IMAGE_LOADER, TitleCasePipe, provideImageKitLoader } from '@angular/common';
+import { imageKitLoader } from './imagekit.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,11 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(withFetch()),
     provideAnimations(),
+    // provideImageKitLoader('https://ik.imagekit.io/jgerard/fem-audiophile-e-commerce-website'),
+    {
+      provide: IMAGE_LOADER,
+      useValue: imageKitLoader,
+    },
     {
       provide: TitleStrategy,
       useClass: TitleStrategyService,

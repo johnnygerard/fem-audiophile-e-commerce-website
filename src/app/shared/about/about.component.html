@@ -1,8 +1,11 @@
-<picture>
-  <source [media]="sourceMedia.DESKTOP" [srcset]="picture.desktop" width="540" height="588">
-  <source [media]="sourceMedia.TABLET" [srcset]="picture.tablet" width="689" height="300">
-  <img class="picture" [src]="picture.mobile" width="327" height="300" alt="">
-</picture>
+<ng-container [ngSwitch]="viewport">
+  <img *ngSwitchCase="'desktop'" [ngSrc]="imageSources.desktop" ngSrcset="1x, 1.1861296296296295x"
+      width="540" height="588" placeholder alt="">
+  <img *ngSwitchCase="'tablet'" [ngSrc]="imageSources.tablet"
+      ngSrcset="1x, 1.25x, 1.5x, 1.6971262699564584x" width="689" height="300" placeholder alt="">
+  <img *ngSwitchCase="'mobile'" [ngSrc]="imageSources.mobile"
+      ngSrcset="1x, 1.25x, 1.5x, 1.697125382262997x" width="327" height="300" placeholder alt="">
+</ng-container>
 <div class="text-container">
   <h2 class="heading">Bringing you the <span class="word-highlight">best</span> audio gear</h2>
   <p class="text-body">
